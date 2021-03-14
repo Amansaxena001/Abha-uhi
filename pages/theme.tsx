@@ -3,10 +3,12 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 // Create a theme instance.
 const theme = createMuiTheme({
+
+
   palette: {
     //define component base colors 
     primary: {
-      main: '#00bbff',
+      main: '#eeeeee',
     },
     secondary: {
       main: '#19857b',
@@ -26,15 +28,25 @@ const theme = createMuiTheme({
       fontWeight: 700
     }
   },
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 600,
-      md: 960,
-      lg: 1280,
-      xl: 1920,
-    },
+  overrides: {
+    MuiContainer: {
+      root: {
+        '@media(min-width:768px)': {
+          maxWidth: '720px',
+
+        },
+        '@media(min-width:992px)': {
+          maxWidth: '960px',
+
+        },
+      }
+
+    }
   }
+
 });
+
+
+
 
 export default theme;

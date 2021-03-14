@@ -17,10 +17,10 @@ class MyApp extends App {
     const { Component, pageProps } = this.props;
     return (
       <Provider store={store}>
-        <MuiThemeProvider theme={theme}>
+        <ThemeProvider theme={theme}>
           <CssBaseline />
           <Component {...pageProps}></Component>
-        </MuiThemeProvider>
+        </ThemeProvider>
       </Provider>
     );
   }
