@@ -7,13 +7,20 @@ import { Provider } from "react-redux";
 import { createWrapper } from "next-redux-wrapper";
 
 import { store } from "@app/redux/store";
+import { ThemeProvider } from "@material-ui/styles";
+import { CssBaseline } from "@material-ui/core";
+import theme from "./theme";
+import { MuiThemeProvider } from "@material-ui/core";
 
 class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
       <Provider store={store}>
-        <Component {...pageProps}></Component>
+        <MuiThemeProvider theme={theme}>
+          <CssBaseline />
+          <Component {...pageProps}></Component>
+        </MuiThemeProvider>
       </Provider>
     );
   }

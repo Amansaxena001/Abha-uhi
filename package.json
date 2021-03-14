@@ -8,6 +8,7 @@
     "email": "saxenaaman800@gmail.com"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
     "axios": "^0.21.1",
     "next": "10.0.7",
     "next-redux-wrapper": "^6.0.2",
