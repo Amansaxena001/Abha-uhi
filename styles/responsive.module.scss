@@ -1,0 +1,28 @@
+.responsiveDesktop { 
+  @media (max-width: 991px) { 
+    display: none !important; 
+  } 
+} 
+.responsiveTabletDesktop { 
+  @media (max-width: 767px) { 
+    display: none !important; 
+  } 
+} 
+
+.responsiveTablet { 
+  @media (max-width: 767px) and (min-width: 992px) { 
+    display: none !important; 
+  } 
+} 
+
+.responsiveMobileTablet { 
+  @media (min-width: 991px) { 
+    display: none !important; 
+  } 
+} 
+
+.responsiveMobile { 
+  @media (min-width: 767px) { 
+    display: none !important; 
+  } 
+} 

@@ -1,5 +1,4 @@
-import '../styles/globals.scss'
-
+import "@app/styles/index.scss";
 import App from "next/app";
 import React from "react";
 

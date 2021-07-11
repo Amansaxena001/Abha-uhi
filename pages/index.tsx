@@ -1,10 +1,13 @@
 import Head from 'next/head'
 
 
-import styles from '@app/styles/Home.module.scss'
 
-export default function Home() {
+export default function Home(props) {
   return (
-    <h1 className={styles.hh}>dsd</h1>
+    <div className="container">
+
+      <h1>Hi</h1>
+    </div>
+
   )
 }
