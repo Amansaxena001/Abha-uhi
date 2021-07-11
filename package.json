@@ -8,10 +8,10 @@
     "email": "saxenaaman800@gmail.com"
   },
   "dependencies": {
-    "@material-ui/core": "^4.11.3",
     "axios": "^0.21.1",
     "next": "10.0.7",
     "next-redux-wrapper": "^6.0.2",
+    "normalize.css": "^8.0.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-redux": "^7.2.2",
@@ -30,8 +30,9 @@
   ],
   "license": "MIT",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "ENV=development next dev",
+    "build:staging": "ENV=staging next build",
+    "build:production": "ENV=production next build",
     "start": "next start"
   },
   "devDependencies": {

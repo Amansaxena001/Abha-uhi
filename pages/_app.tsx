@@ -1,5 +1,4 @@
-import '../styles/globals.scss'
-
+import "@app/styles/index.scss";
 import App from "next/app";
 import React from "react";
 
@@ -7,20 +6,13 @@ import { Provider } from "react-redux";
 import { createWrapper } from "next-redux-wrapper";
 
 import { store } from "@app/redux/store";
-import { ThemeProvider } from "@material-ui/styles";
-import { CssBaseline } from "@material-ui/core";
-import theme from "./theme";
-import { MuiThemeProvider } from "@material-ui/core";
 
 class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
       <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <Component {...pageProps}></Component>
-        </ThemeProvider>
+        <Component {...pageProps}></Component>
       </Provider>
     );
   }

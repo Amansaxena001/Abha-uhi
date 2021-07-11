@@ -1,0 +1,94 @@
+/*
+ * Variables
+ */
+
+// some defaults
+$default-border-radius: 7px;
+$default-font-size: 16px;
+$default-font-style: "Open Sans", sans-serif;
+$default-box-shadow: 2px 4px 8px 0 rgba(46, 61, 73, 0.2);
+
+// colors
+$color-black: #000000;
+$color-light-black: rgba(0, 0, 0, 0.16);
+$color-white: #ffffff;
+$color-silver: #c0c0c0;
+$color-gray: #808080;
+$color-red: #ff0000;
+$color-maroon: #800000;
+$color-yellow: #ffff00;
+$color-olive: #808000;
+$color-lime: #00ff00;
+$color-green: #008000;
+$color-aqua: #00ffff;
+$color-teal: #008080;
+$color-blue: #0000ff;
+$color-navy: #000080;
+$color-fuchsia: #ff00ff;
+$color-purple: #800080;
+
+// board infinity colors
+$infinity-blue: #00bbff;
+$infinity-light-blue: #00aeef;
+$infinity-dark-blue: #003471;
+$infinity-green: #52eb86;
+$infinity-dark-green: #00211d;
+$infinity-bright-green: #66ff66;
+$infinity-gray: #979797;
+$infinity-dark-gray: #737373;
+$infinity-light-gray: #f2f4f5;
+$infinity-black: #012622;
+$infinity-white: #ffffff;
+$infinity-yellow-orange: #ffbc42;
+
+// social
+$social-mail: #333;
+$social-linkedin: #0077b5;
+$social-google: #4285f4;
+$social-whatsapp: #4fce5d;
+$social-facebook: #3b5998;
+$social-twitter: #1da1f2;
+
+// gradients
+$infinity-blue-green-toright: linear-gradient(to right, $infinity-blue, $infinity-green);
+
+// Box shadows
+$default-card-box-shadow: 5px 5px 25px 0 rgba(46, 61, 73, 0.2);
+
+$font-family1: 'Montserrat', sans-serif;; // use 400, 700
+$font-family2:'Montserrat', sans-serif;; // use 400, 600, 700
+
+$font-size-large: 70px;
+
+$font-size-heading: 32px;
+$font-size-heading-mobile: 30px;
+
+$font-size-subheading: 28px;
+$font-size-subheading-mobile: 25px;
+
+$font-size-abnormal: 25px; // check
+$font-size-abnormal-mobile: 18px; // check
+
+$font-size-normal-heading: 20px;
+$font-size-normal-heading-mobile: 19px;
+
+$font-size-normal: 18px;
+$font-size-normal-mobile: 17px;
+
+$font-size-small: 16px;
+
+// difference variable
+
+$headingSubheadingDifference: 10px;
+$headingToComponentDifference: 56px;
+$differenceBetweenComponent: 60px;
+$componentToButtonDifference: 60px;
+
+// TODO: change variable name
+// figma new color variants
+$color-black-figma: #333333;
+$color-text: #606469;
+$color-figma-gray: #f2f2f2;
+
+$border-grey: #e5e5e5;
+$box-shadow1: 1px 1px 10px rgba(0, 0, 0, 0.1);
