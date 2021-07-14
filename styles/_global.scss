@@ -14,7 +14,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #333;
-  background-color: #fff;
+  background-color:$base-bg ;
   line-height: 1.5;
   @include clearfix;
 }

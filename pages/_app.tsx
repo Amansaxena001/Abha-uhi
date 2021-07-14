@@ -5,7 +5,7 @@ import React from "react";
 import { Provider } from "react-redux";
 import { createWrapper } from "next-redux-wrapper";
 
-import { store } from "@app/redux/store";
+import { store } from "@app/src/redux/store";
 
 class MyApp extends App {
   render() {

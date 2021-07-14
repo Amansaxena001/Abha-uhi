@@ -8,7 +8,10 @@
     "email": "saxenaaman800@gmail.com"
   },
   "dependencies": {
+    "antd": "^4.16.7",
     "axios": "^0.21.1",
+    "classnames": "^2.3.1",
+    "lodash": "^4.17.21",
     "next": "10.0.7",
     "next-redux-wrapper": "^6.0.2",
     "normalize.css": "^8.0.1",
