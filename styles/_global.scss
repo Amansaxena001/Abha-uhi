@@ -103,7 +103,7 @@ img {
   font-weight: normal;
   font-size: $font-size-heading;
   text-align: center;
-  color: $infinity-blue;
+  // color: $infinity-blue;
   display: flex;
   flex-direction: column;
 
@@ -118,7 +118,7 @@ img {
     margin-left: auto;
     margin-right: auto;
     height: 7px;
-    background: linear-gradient(to right, $infinity-blue 0%, #a9fdac 100%);
+    // background: linear-gradient(to right, $infinity-blue 0%, #a9fdac 100%);
 
     @include breakpoint(tablet) {
       height: 5px;
@@ -140,7 +140,7 @@ img {
   font-weight: 500;
   font-size: $font-size-subheading;
   text-align: center;
-  color: $infinity-blue;
+  // color: $infinity-blue;
   display: flex;
   flex-direction: column;
   align-items: center;

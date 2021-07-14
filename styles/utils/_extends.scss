@@ -25,16 +25,19 @@
 $container-max-widths: (
   sm: 540px,
   md: 720px,
-  lg: 960px,
-  xl: 1140px
+  md-desktop:992px,
+  lg: 1224px,
+  xl: 1824px
 ) !default;
+
 
 $grid-breakpoints: (
   xs: 0,
   sm: 576px,
   md: 768px,
-  lg: 992px,
-  xl: 1200px
+  md-desktop:1024px,
+  lg: 1366px,
+  xl: 1920px
 ) !default;
 
 $grid-gutter-width: 30px !default;
