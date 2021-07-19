@@ -25,9 +25,9 @@
 $container-max-widths: (
   sm: 540px,
   md: 720px,
-  md-desktop:992px,
-  lg: 1224px,
-  xl: 1824px
+  md-desktop:960px,
+  lg: 1140px,
+  xl: 1400px
 ) !default;
 
 
@@ -35,9 +35,9 @@ $grid-breakpoints: (
   xs: 0,
   sm: 576px,
   md: 768px,
-  md-desktop:1024px,
-  lg: 1366px,
-  xl: 1920px
+  md-desktop:992px,
+  lg: 1200px,
+  xl: 1400px
 ) !default;
 
 $grid-gutter-width: 30px !default;
@@ -48,6 +48,7 @@ $grid-gutter-width: 30px !default;
   padding-left: $gutter / 2;
   margin-right: auto;
   margin-left: auto;
+  background: red;
 }
 
 // For each breakpoint, define the maximum width of the container in a media query

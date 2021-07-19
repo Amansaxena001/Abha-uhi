@@ -14,11 +14,13 @@ import { NextPage } from "next";
 
 export default function index(props) {
   return (
-    <Head>
-      <title>Sharda Sangeet Vidhyalaya</title>
-      <meta name="description" content="Learn Indian Classical Music, from the times of tansen" />
+    <>
+      <Head>
+        <title>Sharda Sangeet Vidhyalaya</title>
+        <meta name="description" content="Learn Indian Classical Music, from the times of tansen" />
+      </Head>
       <Home />
-    </Head>
+    </>
 
   )
 }

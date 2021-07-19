@@ -1,9 +1,11 @@
 import "@app/styles/index.scss";
 import App from "next/app";
 import React from "react";
+import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 import { Provider } from "react-redux";
 import { createWrapper } from "next-redux-wrapper";
+
 
 import { store } from "@app/src/redux/store";
 
