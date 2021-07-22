@@ -7,7 +7,7 @@ interface IProps {
 
 const HeroSection: React.FC<IProps> = ({ }) => {
   return (
-    <div className="container">
+    <div>
       <h1 className={styles.headerText}>
         Sharda Sangeet <br /> Vidhyalaya
       </h1>
