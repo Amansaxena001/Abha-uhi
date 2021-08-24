@@ -7,7 +7,7 @@ interface IProps {
 
 const Courses: React.FC<IProps> = ({ }) => (
   <div className={styles.container}>
-    <h1>Our Courses</h1>
+    <h1  >Our Cou   rses</h1>
   </div>
 )
 
