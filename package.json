@@ -8,10 +8,11 @@
     "email": "saxenaaman800@gmail.com"
   },
   "dependencies": {
+    "@types/react-redux": "^7.1.16",
     "antd": "^4.16.7",
     "axios": "^0.21.1",
     "classnames": "^2.3.1",
-    "next": "^10.0.5",
+    "next": "^10.0.7",
     "next-redux-wrapper": "^6.0.2",
     "normalize.css": "^8.0.1",
     "react": "17.0.1",

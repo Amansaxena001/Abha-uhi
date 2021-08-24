@@ -2,20 +2,18 @@
  * Variables
  */
 
- // base color-pallete 
- $base-bg:#EADCD1;
- $primary-dark:#162238;
- $hero-heading:#271402;
+// base color-pallete
+$base-bg: #eadcd1;
+$primary-dark: #162238;
+$hero-heading: #271402;
 
-
- // basic font weight
-$light:200;
-$medium:400;
-$regular:500;
-$semi-bold:600;
-$bold:700;
-$extra-bold:800;
-
+// basic font weight
+$light: 200;
+$medium: 400;
+$regular: 500;
+$semi-bold: 600;
+$bold: 700;
+$extra-bold: 800;
 
 // some defaults
 $default-border-radius: 7px;
@@ -41,8 +39,8 @@ $color-blue: #0000ff;
 $color-navy: #000080;
 $color-fuchsia: #ff00ff;
 $color-purple: #800080;
-
-
+$color-banner: #29685f;
+$color-orange: #ff8766;
 
 // social
 $social-mail: #333;
@@ -57,10 +55,11 @@ $social-twitter: #1da1f2;
 // Box shadows
 $default-card-box-shadow: 5px 5px 25px 0 rgba(46, 61, 73, 0.2);
 
-$font-family1: 'Montserrat', sans-serif; // use 400, 700
-$font-family2:'Montserrat', sans-serif; // use 400, 600, 700
+$font-family1: "Montserrat", sans-serif; // use 400, 700
+$font-family2: "Montserrat", sans-serif; // use 400, 600, 700
 
 $font-size-large: 70px;
+$font-size-md-large: 44px;
 
 $font-size-heading: 32px;
 $font-size-heading-mobile: 30px;
