@@ -1,1 +1,1 @@
-export const  home = 's'
+export const home = 's';
