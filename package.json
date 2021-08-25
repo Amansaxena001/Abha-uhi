@@ -44,7 +44,9 @@
     "test-all": "npm run check-format && npm run check-lint && npm run check-types && npm run build",
     "prepare": "husky install",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "precommit": "eslint",
+    "prepush": "npm run lint"
   },
   "devDependencies": {
     "@types/next": "^9.0.0",
@@ -61,7 +63,7 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^7.0.1",
-    "lint-staged": "^11.1.2",
+    "lint-staged": "^10.0.8",
     "typescript": "^4.2.3"
   },
   "husky": {
@@ -71,6 +73,5 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": "npm run precommit"
-    
   }
 }
