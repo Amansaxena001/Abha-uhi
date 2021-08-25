@@ -6,7 +6,7 @@ interface IProps {
 
 }
 
-const HeroSection: React.FC<IProps> = () => {
+const HeroSection: React.FC<IProps> = ({}) => {
   return (
     <div>
       <h1 className={styles.headerText}>
