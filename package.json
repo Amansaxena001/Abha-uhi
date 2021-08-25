@@ -70,8 +70,7 @@
     }
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "npm run precommit"
-    ]
+    "*.{ts,tsx}": "npm run precommit"
+    
   }
 }
