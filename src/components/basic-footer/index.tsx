@@ -1,8 +1,6 @@
-import React from "react"
+import React from 'react';
 
-interface indexProps {
+interface indexProps {}
 
-}
-
-const index: React.FC<indexProps> = () => (<div />)
-export default index
+const index: React.FC<indexProps> = () => <div />;
+export default index;

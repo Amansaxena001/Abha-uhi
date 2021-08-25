@@ -1,9 +1,9 @@
-import { ERROR_NEWS } from "../actions/action.type";
+import { ERROR_NEWS } from '../actions/action.type';
 
 const initialState = {
   msg: {},
   status: null,
-  id: null,
+  id: null
 };
 
 export const errorReducer = (state = initialState, action) => {
@@ -13,7 +13,7 @@ export const errorReducer = (state = initialState, action) => {
       return {
         msg: payload,
         status: payload,
-        id: payload,
+        id: payload
       };
 
     default:

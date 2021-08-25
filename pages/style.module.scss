@@ -1,9 +1,7 @@
-@import "styles/utils/index";
+@import 'styles/utils/index';
 
-
-
-.c{
-  @include breakpoint(tablet){
-  color: red;
+.c {
+  @include breakpoint(tablet) {
+    color: red;
   }
 }

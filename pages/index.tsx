@@ -1,11 +1,7 @@
+import Home from '@app/src/containers/home/index';
 
-
-import Home from '@app/src/containers/home/index'
-
-import React from "react";
-import dynamic from "next/dynamic";
-import Head from "next/head";
-import { NextPage } from "next";
+import React from 'react';
+import Head from 'next/head';
 
 // const CoachFeedbackFormDynamic = dynamic(() => import(), {
 //   // loading: () => <FullPageLoader />,
@@ -21,6 +17,5 @@ export default function index(props) {
       </Head>
       <Home />
     </>
-
-  )
+  );
 }

@@ -1,23 +1,19 @@
-@import "styles/utils/index"; 
+@import 'styles/utils/index';
 
-
-.nav{
+.nav {
   display: flex;
   padding-top: 30px;
-
 }
-.leftContainer{
+.leftContainer {
   display: flex;
   gap: 8em;
   font-weight: $semi-bold;
   color: $primary-dark;
   font-size: $font-size-normal;
   cursor: pointer;
-  
 }
 
-.rightContainer{
+.rightContainer {
   margin-left: auto;
-  @extend .leftContainer
-
+  @extend .leftContainer;
 }

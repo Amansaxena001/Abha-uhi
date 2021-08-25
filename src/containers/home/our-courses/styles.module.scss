@@ -1,7 +1,7 @@
-@import "styles/utils/index"; 
+@import 'styles/utils/index';
 
-.container{
-  > h1{
+.container {
+  > h1 {
     font-size: $font-size-large;
     font-weight: $light;
     margin-top: 50px;

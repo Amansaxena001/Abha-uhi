@@ -8,7 +8,7 @@ export default class MyDocument extends Document {
         <Head>
           <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200&display=swap" rel="stylesheet" />
         </Head>
-        <body >
+        <body>
           <Main />
           <NextScript />
         </body>
@@ -48,6 +48,6 @@ MyDocument.getInitialProps = async ctx => {
   return {
     ...initialProps,
     // Styles fragment is rendered after the app and page rendering finish.
-    styles: [...React.Children.toArray(initialProps.styles)],
+    styles: [...React.Children.toArray(initialProps.styles)]
   };
 };

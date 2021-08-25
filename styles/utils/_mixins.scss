@@ -13,13 +13,20 @@
  */
 
 $breakpoints: (
-  mobile-s: 320px, // x 568
-  mobile-m: 375px, // x 667
-  mobile: 620px, // x 800
-  tablet: 768px, // x 1024
-  desktop-s: 1024px, // x 768
-  desktop-m: 1366px, // x 768
-  desktop: 1440px, // x 900
+  mobile-s: 320px,
+  // x 568
+  mobile-m: 375px,
+  // x 667
+  mobile: 620px,
+  // x 800
+  tablet: 768px,
+  // x 1024
+  desktop-s: 1024px,
+  // x 768
+  desktop-m: 1366px,
+  // x 768
+  desktop: 1440px,
+  // x 900
 );
 
 $breakpointsHeight: (
@@ -29,13 +36,12 @@ $breakpointsHeight: (
   tablet: 1024px,
   desktop-s: 1024px,
   desktop-m: 1366px,
-  desktop: 1440px,
+  desktop: 1440px
 );
-
 
 $orientations: (
   potrait: 'potrait',
-  landscape: 'landscape',
+  landscape: 'landscape'
 );
 
 @mixin breakpoint($breakpoint, $orientation: null) {

@@ -8,18 +8,18 @@ import Courses from './our-courses/Courses';
 interface IProps {}
 
 const Home: React.FC<IProps> = () => {
-    return (
-        <>
-            <div className="container">
-                <BasicNavbar />
-                <HeroSection />
-            </div>
-            <Banner />
-            <div className="container">
-                <Courses />
-            </div>
-        </>
-    );
+  return (
+    <>
+      <div className="container">
+        <BasicNavbar />
+        <HeroSection />
+      </div>
+      <Banner />
+      <div className="container">
+        <Courses />
+      </div>
+    </>
+  );
 };
 
 export default Home;

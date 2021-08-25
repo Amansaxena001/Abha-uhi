@@ -1,3 +1,3 @@
 export const get = () => {
-  return 'a'
-}
+  return 'a';
+};

@@ -1,18 +1,18 @@
 @charset "UTF-8";
 @use "sass:math";
 
-$hamburger-padding-x : 15px !default;
-$hamburger-padding-y : 15px !default;
-$hamburger-layer-width : 35px !default;
-$hamburger-layer-height : 4px !default;
-$hamburger-layer-spacing : 7.5px !default;
-$hamburger-layer-color : #333 !default;
-$hamburger-layer-border-radius : 4px !default;
-$hamburger-hover-opacity : 1 !default;
-$hamburger-active-layer-color : $hamburger-layer-color !default;
+$hamburger-padding-x: 15px !default;
+$hamburger-padding-y: 15px !default;
+$hamburger-layer-width: 35px !default;
+$hamburger-layer-height: 4px !default;
+$hamburger-layer-spacing: 7.5px !default;
+$hamburger-layer-color: #333 !default;
+$hamburger-layer-border-radius: 4px !default;
+$hamburger-hover-opacity: 1 !default;
+$hamburger-active-layer-color: $hamburger-layer-color !default;
 $hamburger-active-hover-opacity: $hamburger-hover-opacity !default;
-$hamburger-hover-use-filter : false !default;
-$hamburger-hover-filter : opacity(50%) !default;
+$hamburger-hover-use-filter: false !default;
+$hamburger-hover-filter: opacity(50%) !default;
 $hamburger-active-hover-filter: $hamburger-hover-filter !default;
 
 /*
@@ -39,9 +39,7 @@ $hamburger-active-hover-filter: $hamburger-hover-filter !default;
   &:hover {
     @if $hamburger-hover-use-filter==true {
       filter: $hamburger-hover-filter;
-    }
-
-    @else {
+    } @else {
       opacity: $hamburger-hover-opacity;
     }
   }
@@ -50,9 +48,7 @@ $hamburger-active-hover-filter: $hamburger-hover-filter !default;
     &:hover {
       @if $hamburger-hover-use-filter==true {
         filter: $hamburger-active-hover-filter;
-      }
-
-      @else {
+      } @else {
         opacity: $hamburger-active-hover-opacity;
       }
     }
@@ -92,7 +88,7 @@ $hamburger-active-hover-filter: $hamburger-hover-filter !default;
 
   &::before,
   &::after {
-    content: "";
+    content: '';
     display: block;
   }
 

@@ -6,7 +6,6 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import { Provider } from 'react-redux';
 import { createWrapper } from 'next-redux-wrapper';
 
-
 import { store } from '@app/src/redux/store';
 
 class MyApp extends App {
@@ -20,12 +19,10 @@ class MyApp extends App {
   }
 
   componentDidMount() {
-    const jssStyles = document.querySelector('#jss-server-side')
-    if (jssStyles && jssStyles.parentNode)
-      jssStyles.parentNode.removeChild(jssStyles)
+    const jssStyles = document.querySelector('#jss-server-side');
+    if (jssStyles && jssStyles.parentNode) jssStyles.parentNode.removeChild(jssStyles);
   }
 }
-
 
 const makeStore = () => store;
 const wrapper = createWrapper(makeStore);
