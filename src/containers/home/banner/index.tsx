@@ -3,6 +3,7 @@ import styles from './styles.module.scss'
 
 const Banner: React.FC = () => (
   <div className={styles.container}>
+    <div className="container">
     <div className={styles.c__shortSeparator} />
     <h1 className={styles.c__headerText}>FINDINGS</h1>
     <div className={styles.c__content}>
@@ -15,5 +16,8 @@ const Banner: React.FC = () => (
     </div>
     <a>Read the article</a>
   </div>
+    </div>
+
+  
 )
 export default Banner

@@ -1,11 +1,12 @@
 import PrimaryButton from '@app/src/components/primary-button'
 import React from 'react'
 import styles from './styles.module.scss'
+
 interface IProps {
 
 }
 
-const HeroSection: React.FC<IProps> = ({ }) => {
+const HeroSection: React.FC<IProps> = () => {
   return (
     <div>
       <h1 className={styles.headerText}>
