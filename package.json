@@ -44,7 +44,6 @@
     "prepare": "husky install",
     "lint": "eslint . --ext ts --ext tsx --ext js",
     "lint:fix": "eslint . --fix"
-   
   },
   "devDependencies": {
     "@types/next": "^9.0.0",
@@ -60,16 +59,20 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "husky": "^7.0.1",
+    "husky": "^4.2.3",
     "lint-staged": "^10.0.8",
     "typescript": "^4.2.3"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run check-types"
     }
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx}": "npm run precommit"
+    "*.@(ts | tsx)": [
+      "npm lint",
+      "npm format"
+    ]
   }
 }
