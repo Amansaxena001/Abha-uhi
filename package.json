@@ -71,7 +71,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "eslint '.{ts,tsx}' --fix"
+      "npm run precommit"
     ]
   }
 }
