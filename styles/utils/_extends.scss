@@ -26,8 +26,8 @@ $container-max-widths: (
   sm: 540px,
   md: 720px,
   md-desktop:960px,
-  lg: 1140px,
-  xl: 1200px
+  lg: 1112px,
+  xl: 1440px
 ) !default;
 
 
@@ -35,8 +35,8 @@ $grid-breakpoints: (
   xs: 0,
   sm: 576px,
   md: 768px,
-  md-desktop:992px,
-  lg: 1200px,
+  md-desktop:1024px,
+  lg: 1440px,
   xl: 1600px
 ) !default;
 
@@ -44,8 +44,8 @@ $grid-gutter-width: 30px !default;
 
 @mixin make-container($gutter: $grid-gutter-width) {
   width: 100%;
-  padding-right: $gutter / 2;
-  padding-left: $gutter / 2;
+  padding-right: $gutter * 0.5;
+  padding-left: $gutter * 0.5;
   margin-right: auto;
   margin-left: auto;
 }
