@@ -1,48 +1,48 @@
 @import 'styles/utils/index';
 
 .container {
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin-bottom: 60px;
-  min-height: calc(100vh - 300px);
-
-  & > img {
-    height: 350px;
-
-    @include breakpoint(mobile) {
-      height: 250px;
-    }
-  }
-
-  & > h1 {
-    margin-top: 40px;
-    font-size: 40px;
-    font-weight: 600;
-    margin-bottom: 0px;
-
-    @include breakpoint(tablet) {
-      font-size: 30px;
-      font-weight: 600;
-      margin-top: 20px;
-    }
-  }
-
-  & > p {
     text-align: center;
-    font-size: 18px;
-    margin-top: 20px;
-    margin-bottom: 0px;
-    max-width: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 60px;
+    min-height: calc(100vh - 300px);
 
-    @include breakpoint(mobile) {
-      margin: 20px 0 0 0;
+    & > img {
+        height: 350px;
+
+        @include breakpoint(mobile) {
+            height: 250px;
+        }
     }
 
-    @include breakpoint(tablet) {
-      font-size: 16px;
+    & > h1 {
+        margin-top: 40px;
+        font-size: 40px;
+        font-weight: 600;
+        margin-bottom: 0px;
+
+        @include breakpoint(tablet) {
+            font-size: 30px;
+            font-weight: 600;
+            margin-top: 20px;
+        }
     }
-  }
+
+    & > p {
+        text-align: center;
+        font-size: 18px;
+        margin-top: 20px;
+        margin-bottom: 0px;
+        max-width: 800px;
+
+        @include breakpoint(mobile) {
+            margin: 20px 0 0 0;
+        }
+
+        @include breakpoint(tablet) {
+            font-size: 16px;
+        }
+    }
 }

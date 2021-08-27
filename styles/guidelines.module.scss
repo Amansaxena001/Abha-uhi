@@ -1,13 +1,13 @@
 .container {
-  padding: 15px;
+    padding: 15px;
 }
 
 .guidelinesDrawerUl {
-  padding-left: 20px;
-  list-style: disc;
-  padding-top: 10px;
+    padding-left: 20px;
+    list-style: disc;
+    padding-top: 10px;
 
-  & > li {
-    margin-bottom: 10px;
-  }
+    & > li {
+        margin-bottom: 10px;
+    }
 }

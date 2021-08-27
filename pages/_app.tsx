@@ -9,19 +9,19 @@ import { createWrapper } from 'next-redux-wrapper';
 import { store } from '@app/src/redux/store';
 
 class MyApp extends App {
-  render() {
-    const { Component, pageProps } = this.props;
-    return (
-      <Provider store={store}>
-        <Component {...pageProps} />
-      </Provider>
-    );
-  }
+    render() {
+        const { Component, pageProps } = this.props;
+        return (
+            <Provider store={store}>
+                <Component {...pageProps} />
+            </Provider>
+        );
+    }
 
-  componentDidMount() {
-    const jssStyles = document.querySelector('#jss-server-side');
-    if (jssStyles && jssStyles.parentNode) jssStyles.parentNode.removeChild(jssStyles);
-  }
+    componentDidMount() {
+        const jssStyles = document.querySelector('#jss-server-side');
+        if (jssStyles && jssStyles.parentNode) jssStyles.parentNode.removeChild(jssStyles);
+    }
 }
 
 const makeStore = () => store;

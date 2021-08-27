@@ -9,13 +9,13 @@ import Head from 'next/head';
 // });
 
 export default function index(props) {
-  return (
-    <>
-      <Head>
-        <title>Sharda Sangeet Vidhyalaya</title>
-        <meta name="description" content="Learn Indian Classical Music, from the times of tansen" />
-      </Head>
-      <Home />
-    </>
-  );
+    return (
+        <>
+            <Head>
+                <title>Sharda Sangeet Vidhyalaya</title>
+                <meta name="description" content="Learn Indian Classical Music, from the times of tansen" />
+            </Head>
+            <Home />
+        </>
+    );
 }

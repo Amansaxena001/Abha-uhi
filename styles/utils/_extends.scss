@@ -1,69 +1,69 @@
 %flex-centered-horizontal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
 }
 
 %flex-centered-vertical {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 %background-cover-centered {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
 
 %section {
-  padding: 30px 0px;
+    padding: 30px 0px;
 }
 
 $container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  md-desktop: 960px,
-  lg: 1112px,
-  xl: 1440px
+    sm: 540px,
+    md: 720px,
+    md-desktop: 960px,
+    lg: 1112px,
+    xl: 1440px
 ) !default;
 
 $grid-breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  md-desktop: 1024px,
-  lg: 1440px,
-  xl: 1600px
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    md-desktop: 1024px,
+    lg: 1440px,
+    xl: 1600px
 ) !default;
 
 $grid-gutter-width: 30px !default;
 
 @mixin make-container($gutter: $grid-gutter-width) {
-  width: 100%;
-  padding-right: $gutter * 0.5;
-  padding-left: $gutter * 0.5;
-  margin-right: auto;
-  margin-left: auto;
+    width: 100%;
+    padding-right: $gutter * 0.5;
+    padding-left: $gutter * 0.5;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 // For each breakpoint, define the maximum width of the container in a media query
 @mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
-  @each $breakpoint, $container-max-width in $max-widths {
-    @media (min-width: map-get($grid-breakpoints, $breakpoint)) {
-      max-width: $container-max-width;
+    @each $breakpoint, $container-max-width in $max-widths {
+        @media (min-width: map-get($grid-breakpoints, $breakpoint)) {
+            max-width: $container-max-width;
+        }
     }
-  }
 }
 
 %container {
-  @include make-container();
-  @include make-container-max-widths();
+    @include make-container();
+    @include make-container-max-widths();
 }
 
 %container-fluid {
-  @include make-container();
-  max-width: 1920px;
+    @include make-container();
+    max-width: 1920px;
 }
