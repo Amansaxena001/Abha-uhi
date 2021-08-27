@@ -1,106 +1,104 @@
 @charset "UTF-8";
-$hamburger-padding-x : 15px !default;
-$hamburger-padding-y : 15px !default;
-$hamburger-layer-width : 35px !default;
-$hamburger-layer-height : 4px !default;
-$hamburger-layer-spacing : 7.5px !default;
-$hamburger-layer-color : #333 !default;
-$hamburger-layer-border-radius : 4px !default;
-$hamburger-hover-opacity : 1 !default;
-$hamburger-active-layer-color : $hamburger-layer-color !default;
+@use "sass:math";
+
+$hamburger-padding-x: 15px !default;
+$hamburger-padding-y: 15px !default;
+$hamburger-layer-width: 35px !default;
+$hamburger-layer-height: 4px !default;
+$hamburger-layer-spacing: 7.5px !default;
+$hamburger-layer-color: #333 !default;
+$hamburger-layer-border-radius: 4px !default;
+$hamburger-hover-opacity: 1 !default;
+$hamburger-active-layer-color: $hamburger-layer-color !default;
 $hamburger-active-hover-opacity: $hamburger-hover-opacity !default;
-$hamburger-hover-use-filter : false !default;
-$hamburger-hover-filter : opacity(50%) !default;
+$hamburger-hover-use-filter: false !default;
+$hamburger-hover-filter: opacity(50%) !default;
 $hamburger-active-hover-filter: $hamburger-hover-filter !default;
 
 /*
 * Base Styling - Hamburger
 */
 .hamburger {
-  padding: $hamburger-padding-y $hamburger-padding-x;
-  display: inline-block;
-  cursor: pointer;
+    padding: $hamburger-padding-y $hamburger-padding-x;
+    display: inline-block;
+    cursor: pointer;
 
-  transition-property: opacity, filter;
-  transition-duration: 0.15s;
-  transition-timing-function: linear;
+    transition-property: opacity, filter;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
 
-  // Normalize (<button>)
-  font: inherit;
-  color: inherit;
-  text-transform: none;
-  background-color: transparent;
-  border: 0;
-  margin: 0;
-  overflow: visible;
+    // Normalize (<button>)
+    font: inherit;
+    color: inherit;
+    text-transform: none;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    overflow: visible;
 
-  &:hover {
-    @if $hamburger-hover-use-filter==true {
-      filter: $hamburger-hover-filter;
-    }
-
-    @else {
-      opacity: $hamburger-hover-opacity;
-    }
-  }
-
-  &.is-active {
     &:hover {
-      @if $hamburger-hover-use-filter==true {
-        filter: $hamburger-active-hover-filter;
-      }
-
-      @else {
-        opacity: $hamburger-active-hover-opacity;
-      }
+        @if $hamburger-hover-use-filter==true {
+            filter: $hamburger-hover-filter;
+        } @else {
+            opacity: $hamburger-hover-opacity;
+        }
     }
 
-    .hamburger-inner,
-    .hamburger-inner::before,
-    .hamburger-inner::after {
-      background-color: $hamburger-active-layer-color;
+    &.is-active {
+        &:hover {
+            @if $hamburger-hover-use-filter==true {
+                filter: $hamburger-active-hover-filter;
+            } @else {
+                opacity: $hamburger-active-hover-opacity;
+            }
+        }
+
+        .hamburger-inner,
+        .hamburger-inner::before,
+        .hamburger-inner::after {
+            background-color: $hamburger-active-layer-color;
+        }
     }
-  }
 }
 
 .hamburger-box {
-  width: $hamburger-layer-width;
-  height: $hamburger-layer-width;
-  display: inline-block;
-  position: relative;
+    width: $hamburger-layer-width;
+    height: $hamburger-layer-width;
+    display: inline-block;
+    position: relative;
 }
 
 .hamburger-inner {
-  display: block;
-  top: 50%;
-  margin-top: $hamburger-layer-height / -2;
-
-  &,
-  &::before,
-  &::after {
-    width: $hamburger-layer-width;
-    height: $hamburger-layer-height;
-    background-color: $hamburger-layer-color;
-    border-radius: $hamburger-layer-border-radius;
-    position: absolute;
-    transition-property: transform;
-    transition-duration: 0.15s;
-    transition-timing-function: ease;
-  }
-
-  &::before,
-  &::after {
-    content: "";
     display: block;
-  }
+    top: 50%;
+    margin-top: math.div($hamburger-layer-height, -2);
 
-  &::before {
-    top: ($hamburger-layer-spacing + $hamburger-layer-height) * -1;
-  }
+    &,
+    &::before,
+    &::after {
+        width: $hamburger-layer-width;
+        height: $hamburger-layer-height;
+        background-color: $hamburger-layer-color;
+        border-radius: $hamburger-layer-border-radius;
+        position: absolute;
+        transition-property: transform;
+        transition-duration: 0.15s;
+        transition-timing-function: ease;
+    }
 
-  &::after {
-    bottom: ($hamburger-layer-spacing + $hamburger-layer-height) * -1;
-  }
+    &::before,
+    &::after {
+        content: '';
+        display: block;
+    }
+
+    &::before {
+        top: ($hamburger-layer-spacing + $hamburger-layer-height) * -1;
+    }
+
+    &::after {
+        bottom: ($hamburger-layer-spacing + $hamburger-layer-height) * -1;
+    }
 }
 
 /*
@@ -108,72 +106,72 @@ $hamburger-active-hover-filter: $hamburger-hover-filter !default;
 */
 
 .hamburger--slider {
-  .hamburger-inner {
-    top: $hamburger-layer-height / 2;
-
-    &::before {
-      top: $hamburger-layer-height + $hamburger-layer-spacing;
-      transition-property: transform, opacity;
-      transition-timing-function: ease;
-      transition-duration: 0.15s;
-    }
-
-    &::after {
-      top: ($hamburger-layer-height * 2) + ($hamburger-layer-spacing * 2);
-    }
-  }
-
-  &.is-active {
     .hamburger-inner {
-      $y-offset: $hamburger-layer-spacing + $hamburger-layer-height;
+        top: $hamburger-layer-height * 0.5;
 
-      transform: translate3d(0, $y-offset, 0) rotate(45deg);
+        &::before {
+            top: $hamburger-layer-height + $hamburger-layer-spacing;
+            transition-property: transform, opacity;
+            transition-timing-function: ease;
+            transition-duration: 0.15s;
+        }
 
-      &::before {
-        transform: rotate(-45deg) translate3d($hamburger-layer-width / -7, $hamburger-layer-spacing * -1, 0);
-        opacity: 0;
-      }
-
-      &::after {
-        transform: translate3d(0, $y-offset * -2, 0) rotate(-90deg);
-      }
+        &::after {
+            top: ($hamburger-layer-height * 2) + ($hamburger-layer-spacing * 2);
+        }
     }
-  }
+
+    &.is-active {
+        .hamburger-inner {
+            $y-offset: $hamburger-layer-spacing + $hamburger-layer-height;
+
+            transform: translate3d(0, $y-offset, 0) rotate(45deg);
+
+            &::before {
+                transform: rotate(-45deg) translate3d(math.div($hamburger-layer-width, -7), $hamburger-layer-spacing * -1, 0);
+                opacity: 0;
+            }
+
+            &::after {
+                transform: translate3d(0, $y-offset * -2, 0) rotate(-90deg);
+            }
+        }
+    }
 }
 
 /*
 * Slider Reverse
 */
 .hamburger--slider-r {
-  .hamburger-inner {
-    top: 6px;
-
-    &::before {
-      top: $hamburger-layer-height + $hamburger-layer-spacing;
-      transition-property: transform, opacity;
-      transition-timing-function: ease;
-      transition-duration: 0.15s;
-    }
-
-    &::after {
-      top: ($hamburger-layer-height * 2) + ($hamburger-layer-spacing * 2);
-    }
-  }
-
-  &.is-active {
     .hamburger-inner {
-      $y-offset: $hamburger-layer-spacing + $hamburger-layer-height;
+        top: 6px;
 
-      transform: translate3d(0, $y-offset, 0) rotate(-45deg);
+        &::before {
+            top: $hamburger-layer-height + $hamburger-layer-spacing;
+            transition-property: transform, opacity;
+            transition-timing-function: ease;
+            transition-duration: 0.15s;
+        }
 
-      &::before {
-        transform: rotate(45deg) translate3d($hamburger-layer-width / 7, $hamburger-layer-spacing * -1, 0);
-        opacity: 0;
-      }
-
-      &::after {
-        transform: translate3d(0, $y-offset * -2, 0) rotate(90deg);
-      }
+        &::after {
+            top: ($hamburger-layer-height * 2) + ($hamburger-layer-spacing * 2);
+        }
     }
-  }
+
+    &.is-active {
+        .hamburger-inner {
+            $y-offset: $hamburger-layer-spacing + $hamburger-layer-height;
+
+            transform: translate3d(0, $y-offset, 0) rotate(-45deg);
+
+            &::before {
+                transform: rotate(45deg) translate3d(math.div($hamburger-layer-width, 7), $hamburger-layer-spacing * -1, 0);
+                opacity: 0;
+            }
+
+            &::after {
+                transform: translate3d(0, $y-offset * -2, 0) rotate(90deg);
+            }
+        }
+    }
 }

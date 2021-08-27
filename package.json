@@ -1,45 +1,80 @@
 {
-  "name": "ssv-main",
-  "title": "main site of shara sangeet vidyalaya",
-  "description": "Happy learning music",
-  "version": "0.1.0",
-  "author": {
-    "name": "Aman Saxena",
-    "email": "saxenaaman800@gmail.com"
-  },
-  "dependencies": {
-    "axios": "^0.21.1",
-    "next": "10.0.7",
-    "next-redux-wrapper": "^6.0.2",
-    "normalize.css": "^8.0.1",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "react-redux": "^7.2.2",
-    "redux": "^4.0.5",
-    "redux-devtools-extension": "^2.13.9",
-    "redux-thunk": "^2.3.0",
-    "sass": "^1.32.8"
-  },
-  "keywords": [
-    "next",
-    "nextjs",
-    "next js",
-    "sass",
-    "scss",
-    "css"
-  ],
-  "license": "MIT",
-  "scripts": {
-    "dev": "ENV=development next dev",
-    "build:staging": "ENV=staging next build",
-    "build:production": "ENV=production next build",
-    "start": "next start"
-  },
-  "devDependencies": {
-    "@types/next": "^9.0.0",
-    "@types/node": "^14.14.32",
-    "@types/react": "^17.0.3",
-    "@zeit/next-typescript": "^1.1.1",
-    "typescript": "^4.2.3"
-  }
+    "name": "ssv-main",
+    "title": "main site of shara sangeet vidyalaya",
+    "description": "Happy learning music",
+    "version": "0.1.0",
+    "author": {
+        "name": "Aman Saxena",
+        "email": "saxenaaman800@gmail.com"
+    },
+    "dependencies": {
+        "@types/react-redux": "^7.1.16",
+        "antd": "^4.16.7",
+        "axios": "^0.21.1",
+        "classnames": "^2.3.1",
+        "lodash": "^4.17.21",
+        "logger": "0.0.1",
+        "next": "^10.0.7",
+        "next-redux-wrapper": "^6.0.2",
+        "normalize.css": "^8.0.1",
+        "react": "17.0.1",
+        "react-dom": "17.0.1",
+        "react-query": "^3.21.0",
+        "react-redux": "^7.2.2",
+        "redux": "^4.0.5",
+        "redux-devtools-extension": "^2.13.9",
+        "redux-thunk": "^2.3.0",
+        "sass": "^1.32.8"
+    },
+    "keywords": [
+        "next",
+        "nextjs",
+        "next js",
+        "sass",
+        "scss",
+        "css"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "dev": "ENV=development next dev",
+        "build:staging": "ENV=staging next build",
+        "build:production": "ENV=production next build",
+        "start": "next start",
+        "check-types": "tsc --pretty --noEmit",
+        "check-format": "prettier --check .",
+        "check-lint": "eslint . --ext ts --ext tsx --ext js",
+        "format": "prettier --write .",
+        "test-all": "npm run check-format && npm run check-lint && npm run check-types && npm run build",
+        "prepare": "husky install"
+    },
+    "devDependencies": {
+        "@types/next": "^9.0.0",
+        "@types/node": "^14.14.32",
+        "@types/react": "^17.0.3",
+        "@typescript-eslint/eslint-plugin": "^4.29.3",
+        "@typescript-eslint/parser": "^4.29.3",
+        "@zeit/next-typescript": "^1.1.1",
+        "eslint": "^7.32.0",
+        "eslint-config-airbnb": "^18.2.1",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-import": "^2.24.1",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-react": "^7.24.0",
+        "eslint-plugin-react-hooks": "^4.2.0",
+        "husky": "^3.1.0",
+        "lint-staged": "^10.5.4",
+        "prettier": "^2.3.2",
+        "typescript": "^4.2.3"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{ts,tsx}": [
+            "npm run lint",
+            "npm run format"
+        ]
+    }
 }

@@ -1,0 +1,43 @@
+@import 'styles/utils/index';
+
+.headerText {
+    font-size: $font-size-large;
+    line-height: 85px;
+    font-weight: $bold;
+    margin-top: 90px;
+}
+.h__btn {
+    padding: 1px 150px;
+    height: 70px;
+    border-radius: 50px;
+    background-color: $primary-dark;
+    font-weight: $semi-bold;
+    margin-top: 30px;
+    border-color: $primary-dark;
+    > span {
+        font-size: 24px;
+    }
+    &:hover {
+        background-color: $primary-dark;
+    }
+    &:focus {
+        background-color: $primary-dark;
+        border-color: $primary-dark;
+    }
+}
+.stats {
+    margin-top: 100px;
+    display: flex;
+    gap: 60px;
+    .s__text {
+        > h1 {
+            font-weight: $bold;
+            font-size: 44px;
+            margin-bottom: 0;
+        }
+        > span {
+            font-weight: $semi-bold;
+            opacity: 0.7;
+        }
+    }
+}

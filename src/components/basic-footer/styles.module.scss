@@ -1,0 +1,51 @@
+@import 'styles/utils/index';
+
+.outerContainer {
+    background-color: $color-dark-grey;
+    padding: 70px 0 40px 0;
+    &Items {
+        display: flex;
+        justify-content: space-between;
+        gap: 50px;
+    }
+    &Child {
+        min-width: 220px;
+        > h2 {
+            color: $color-white !important;
+            display: inline-block;
+        }
+        > p {
+            color: $color-white;
+            margin-top: 3px;
+            opacity: 0.7;
+        }
+        > ul {
+            li {
+                margin-bottom: 14px;
+                a {
+                    color: $color-white;
+                    opacity: 0.7;
+                    transition: 0.3s;
+                    width: 100px;
+                    &:hover {
+                        color: $color-white;
+                        opacity: 1;
+                        transition: 0.3s;
+                    }
+                }
+            }
+        }
+        .contactUs {
+            color: $color-light-orange;
+            opacity: 1;
+        }
+    }
+    hr {
+        opacity: 0.7;
+    }
+    .copyRight {
+        color: $color-white;
+        opacity: 0.7;
+        padding-top: 10px;
+    }
+}

@@ -1,0 +1,29 @@
+@import 'styles/utils/index';
+
+.parent {
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.p__leftContainer {
+    flex: 0.6;
+    background-color: red;
+    height: 50vh;
+}
+
+.p__rightContainer {
+    margin-top: auto;
+    flex: 0.4;
+    > h1 {
+        margin-left: auto;
+        width: 70%;
+    }
+
+    > p {
+        width: 70%;
+        font-weight: $regular;
+        margin-left: auto;
+    }
+}

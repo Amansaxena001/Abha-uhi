@@ -2,10 +2,23 @@
  * Variables
  */
 
+// base color-pallete
+$base-bg: #eadcd1;
+$primary-dark: #162238;
+$hero-heading: #271402;
+
+// basic font weight
+$light: 200;
+$medium: 400;
+$regular: 500;
+$semi-bold: 600;
+$bold: 700;
+$extra-bold: 800;
+
 // some defaults
 $default-border-radius: 7px;
 $default-font-size: 16px;
-$default-font-style: "Open Sans", sans-serif;
+$default-font-style: 'Open Sans', sans-serif;
 $default-box-shadow: 2px 4px 8px 0 rgba(46, 61, 73, 0.2);
 
 // colors
@@ -26,20 +39,10 @@ $color-blue: #0000ff;
 $color-navy: #000080;
 $color-fuchsia: #ff00ff;
 $color-purple: #800080;
-
-// board infinity colors
-$infinity-blue: #00bbff;
-$infinity-light-blue: #00aeef;
-$infinity-dark-blue: #003471;
-$infinity-green: #52eb86;
-$infinity-dark-green: #00211d;
-$infinity-bright-green: #66ff66;
-$infinity-gray: #979797;
-$infinity-dark-gray: #737373;
-$infinity-light-gray: #f2f4f5;
-$infinity-black: #012622;
-$infinity-white: #ffffff;
-$infinity-yellow-orange: #ffbc42;
+$color-banner: #29685f;
+$color-orange: #ff8766;
+$color-dark-grey: #31343c;
+$color-light-orange: #ff815e;
 
 // social
 $social-mail: #333;
@@ -50,15 +53,15 @@ $social-facebook: #3b5998;
 $social-twitter: #1da1f2;
 
 // gradients
-$infinity-blue-green-toright: linear-gradient(to right, $infinity-blue, $infinity-green);
 
 // Box shadows
 $default-card-box-shadow: 5px 5px 25px 0 rgba(46, 61, 73, 0.2);
 
-$font-family1: 'Montserrat', sans-serif;; // use 400, 700
-$font-family2:'Montserrat', sans-serif;; // use 400, 600, 700
+$font-family1: 'Montserrat', sans-serif; // use 400, 700
+$font-family2: 'Montserrat', sans-serif; // use 400, 600, 700
 
 $font-size-large: 70px;
+$font-size-md-large: 44px;
 
 $font-size-heading: 32px;
 $font-size-heading-mobile: 30px;

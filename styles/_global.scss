@@ -1,22 +1,22 @@
 // Global Overrides
-@import "~normalize.css/normalize.css";
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100&display=swap');
+@import '~normalize.css/normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100&display=swap');
 html {
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
+    line-height: 1.15 !important;
+    -webkit-text-size-adjust: 100% !important;
+    -ms-text-size-adjust: 100% !important;
 }
 
 body {
-  margin: 0px;
-  font-family: $font-family1;
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #333;
-  background-color: #fff;
-  line-height: 1.5;
-  @include clearfix;
+    margin: 0px !important;
+    font-family: $font-family1 !important;
+    font-size: 16px !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    color: #333 !important;
+    background-color: $base-bg !important ;
+    line-height: 1.5 !important;
+    @include clearfix;
 }
 
 h1,
@@ -25,13 +25,13 @@ h3,
 h4,
 h5,
 h6 {
-  color: #333;
+    color: #333 !important;
 }
 
 hr {
-  box-sizing: content-box;
-  height: 0;
-  overflow: visible;
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
 }
 
 a,
@@ -39,36 +39,36 @@ a:hover,
 a:active,
 a:visited,
 a:focus {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 button {
-  cursor: pointer;
+    cursor: pointer;
 
-  &:focus {
-    outline: none;
-  }
+    &:focus {
+        outline: none;
+    }
 }
 
 ul {
-  padding-inline-start: 5px;
+    padding-inline-start: 5px;
 }
 
 img {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 .desktop-only {
-  @include breakpoint(tablet) {
-    display: none;
-  }
+    @include breakpoint(tablet) {
+        display: none;
+    }
 }
 
 .mobile-only {
-  @include breakpoint-min(tablet) {
-    display: none;
-  }
+    @include breakpoint-min(tablet) {
+        display: none;
+    }
 }
 
 // Others
@@ -82,109 +82,116 @@ img {
 // }
 
 .ul_tick {
-  margin-bottom: unset;
-  & > li {
-    list-style-type: none;
+    margin-bottom: unset;
+    & > li {
+        list-style-type: none;
 
-    &:before {
-      content: "✓";
-      position: absolute;
-      left: 0em;
+        &:before {
+            content: '✓';
+            position: absolute;
+            left: 0em;
 
-      @include breakpoint(mobile) {
-        margin-left: 10px;
-      }
+            @include breakpoint(mobile) {
+                margin-left: 10px;
+            }
+        }
     }
-  }
 }
 
 .home__header {
-  font-family: $font-family1;
-  font-weight: normal;
-  font-size: $font-size-heading;
-  text-align: center;
-  color: $infinity-blue;
-  display: flex;
-  flex-direction: column;
-
-  @include breakpoint(tablet) {
-    font-size: $font-size-heading-mobile;
-  }
-
-  &::after {
-    content: "";
-    width: 116px;
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    height: 7px;
-    background: linear-gradient(to right, $infinity-blue 0%, #a9fdac 100%);
+    font-family: $font-family1;
+    font-weight: normal;
+    font-size: $font-size-heading;
+    text-align: center;
+    // color: $infinity-blue;
+    display: flex;
+    flex-direction: column;
 
     @include breakpoint(tablet) {
-      height: 5px;
+        font-size: $font-size-heading-mobile;
     }
-  }
+
+    &::after {
+        content: '';
+        width: 116px;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 7px;
+        // background: linear-gradient(to right, $infinity-blue 0%, #a9fdac 100%);
+
+        @include breakpoint(tablet) {
+            height: 5px;
+        }
+    }
 }
 
 .coachTestimonialWrapper {
-  max-width: 800px;
-  margin: 0 auto;
+    max-width: 800px;
+    margin: 0 auto;
 
-  @include breakpoint(mobile) {
-    margin: 0 20px;
-  }
+    @include breakpoint(mobile) {
+        margin: 0 20px;
+    }
 }
 
 .page_header {
-  font-family: $font-family1;
-  font-weight: 500;
-  font-size: $font-size-subheading;
-  text-align: center;
-  color: $infinity-blue;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  & ::after {
-    content: "";
-    width: 116px;
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    height: 7px;
+    font-family: $font-family1;
+    font-weight: 500;
+    font-size: $font-size-subheading;
+    text-align: center;
+    // color: $infinity-blue;
     display: flex;
-    background: linear-gradient(90deg, #0bf 0, #a9fdac);
-  }
+    flex-direction: column;
+    align-items: center;
 
-  @include breakpoint(tablet) {
-    font-size: $font-size-heading-mobile;
-  }
+    & ::after {
+        content: '';
+        width: 116px;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 7px;
+        display: flex;
+        background: linear-gradient(90deg, #0bf 0, #a9fdac);
+    }
+
+    @include breakpoint(tablet) {
+        font-size: $font-size-heading-mobile;
+    }
 }
 
 // Slick Slider
 .slick-slider {
-  max-width: 100% !important;
+    max-width: 100% !important;
 }
 
 // Overriding antd css
 .ant-rate {
-  padding-inline-start: 0px !important;
+    padding-inline-start: 0px !important;
 }
 
 .ant-empty-image img {
-  display: inline-block;
+    display: inline-block;
 }
 
 // To remove the z-index of zoho tooltip chat-widget component
 // reference : https://help.zoho.com/portal/en/community/topic/chat-widget
 .fz__bs9Fw {
-  z-index: 0 !important;
+    z-index: 0 !important;
 }
 
 .anticon svg {
-  display: block !important;
+    display: block !important;
 }
 
 .ant-notification {
-  z-index: 99999 !important;
+    z-index: 99999 !important;
 }
+
+//  .ant-btn-primary{
+//   font-family: $font-family1 !important;
+//   > span{
+//     font-weight: 800;
+//   }
+// }
