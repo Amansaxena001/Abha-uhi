@@ -8,4 +8,7 @@ module.exports = {
             '@app/*': path.resolve(__dirname, './*')
         }
     }
+    // images: {
+    //     domains: ['cdn.dribbble.com'],
+    // },
 };

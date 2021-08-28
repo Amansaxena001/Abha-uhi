@@ -1,0 +1,39 @@
+@import 'styles/utils/index';
+
+.container {
+    background: $primary-card;
+    width: 380px;
+    height: 500px;
+    border-radius: 4px;
+    margin: 10px 0 10px 0;
+    padding: 20px 30px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    h4 {
+        color: $color-white !important;
+        opacity: 0.8;
+    }
+    h2 {
+        color: $color-white !important;
+        text-align: center;
+        padding-top: 6px;
+        font-weight: $regular;
+    }
+}
+.tabs {
+    color: $color-white;
+    :global .ant-tabs-tab {
+        font-weight: $medium;
+    }
+    :global .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+        color: $color-orange;
+        opacity: 1;
+    }
+    :global .ant-tabs-tab + .ant-tabs-tab {
+        margin-left: 8rem;
+    }
+    :global .ant-tabs-ink-bar {
+        width: 120px !important;
+    }
+}

@@ -55,7 +55,7 @@ const BasicFooter: React.FC<IProps> = () => {
                 </div>
             </div>
             <hr />
-            <div className={classNames('container', styles.copyRight)}>Copyright 2021-2022 sharda sangeet vidhyalaya</div>
+            <div className={classNames('container', styles.copyRight)}>Copyright ©️ 2021-2022 sharda sangeet vidhyalaya</div>
         </div>
     );
 };
