@@ -1,0 +1,49 @@
+@import 'styles/utils/index';
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #e0e0e0;
+}
+.feedbackContainer {
+    background-color: red;
+    width: 100%;
+    height: 800px;
+    padding: 0 !important;
+    &Card {
+        display: flex;
+        justify-content: space-between;
+
+        .left {
+            flex: 0.4;
+            background: $left-card-color;
+            padding: 20px 0px 0 0px;
+            height: 82vh;
+            > h1 {
+                font-size: $font-size-md-large;
+                font-weight: $semi-bold;
+                color: $header-color !important;
+                padding-left: 70px;
+                padding-top: 30px;
+            }
+            > h4 {
+                padding-left: 70px;
+            }
+            img {
+                margin-left: 20px;
+            }
+        }
+        .right {
+            flex: 0.6;
+            background-color: $base-bg;
+            padding: 50px 20px 0 60px;
+            > h1 {
+                font-size: $font-size-heading;
+                font-weight: $regular;
+                color: $header-color !important;
+            }
+        }
+    }
+}
