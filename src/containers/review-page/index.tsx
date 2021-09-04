@@ -1,7 +1,9 @@
 import React from 'react'
 import classNames from 'classnames';
 // import Image from 'next/image'
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Checkbox, InputNumber } from 'antd';
+import { UserOutlined, MailOutlined } from '@ant-design/icons';
+import PrimaryButton from '@app/src/components/primary-button';
 import styles from './styles.module.scss'
 
 
@@ -13,7 +15,7 @@ const UserFeedBack: React.FC = () => {
           <div className={styles.left}>
             <h1> We'd love to <br /> hear from you</h1>
             <h4>Answer all the questions, it'll help us to grow </h4>
-            <img src="/feeback.svg" alt="feed" height={450} width={450} />
+            <img src="/feeback.svg" alt="feed" />
           </div>
           <div className={styles.right}>
             <h1>
@@ -30,31 +32,36 @@ const UserFeedBack: React.FC = () => {
               autoComplete="off"
             >
               <Form.Item
-                label="name"
                 name="username"
                 rules={[{ required: true, message: 'Please input your username!' }]}
               >
-                <Input />
+                <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="name" />
+              </Form.Item>
+              <Form.Item
+                name="email"
+                rules={[{ required: true, message: 'Please enter your email !' }, {
+                  type: 'email',
+                  message: 'The input is not valid E-mail!',
+                },]}
+              >
+                <Input prefix={<MailOutlined className="site-form-item-icon" />} placeholder="email" />
               </Form.Item>
 
-              <Form.Item name={['user', 'email']} label="email" rules={[{ type: 'email' }]}>
-                <Input />
+              <Form.Item name="input-number" noStyle rules={[{ message: 'choose year from range 1-6' }, { type: 'number', min: 1, max: 6, message: 'ss' }]}>
+                <InputNumber min={1} max={6} type="number" placeholder="current year if already a student" />
               </Form.Item>
 
-              <Form.Item name={['user', 'email']} label="current year if already a student" rules={[{ type: 'email' }]}>
-                <Input />
+              <Form.Item name="ssv_graduate" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
+                <Checkbox defaultChecked={false}>are you a <strong>SSV</strong> graduate?(completed 6 years of training)</Checkbox>
               </Form.Item>
-
-              <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
-                <Checkbox>are you a ssv graduate?(completed 6 years of training)</Checkbox>
-              </Form.Item>
-              <Form.Item name={['user', 'introduction']} label="tell us about your experience">
-                <Input.TextArea style={{ height: 150 }} />
+              <Form.Item name="review_content" >
+                <Input.TextArea autoSize={false} placeholder="tell us about your experience at SSV"
+                  className={styles.textArea} />
               </Form.Item>
               <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                <Button type="primary" htmlType="submit">
+                <PrimaryButton type="primary" htmlType="submit" className={styles.submitBtn} >
                   submit feedback
-                </Button>
+                </PrimaryButton>
               </Form.Item>
             </Form>
           </div>
