@@ -1,13 +1,46 @@
 import React from 'react'
 import classNames from 'classnames';
 // import Image from 'next/image'
-import { Form, Input, Checkbox, InputNumber } from 'antd';
+import { Form, Input, Checkbox, InputNumber, Rate } from 'antd';
 import { UserOutlined, MailOutlined } from '@ant-design/icons';
 import PrimaryButton from '@app/src/components/primary-button';
 import styles from './styles.module.scss'
 
 
 const UserFeedBack: React.FC = () => {
+
+  const [form] = Form.useForm();
+
+  const customIcons = {
+    1: <img
+      className={styles.emoji}
+      src=
+      "https://img.icons8.com/external-justicon-lineal-color-justicon/50/000000/external-emoji-emoji-justicon-lineal-color-justicon-14.png"
+      alt="angry"
+    />,
+    2: <img
+      className={styles.emoji}
+
+      src=
+      "https://img.icons8.com/external-justicon-lineal-color-justicon/50/000000/external-emoji-emoji-justicon-lineal-color-justicon-8.png"
+      alt="not-happy" />,
+    3: <img
+      className={styles.emoji}
+
+      src=
+      "https://img.icons8.com/external-justicon-lineal-color-justicon/50/000000/external-emoji-emoji-justicon-lineal-color-justicon-3.png"
+      alt="ok" />,
+    4: <img
+      className={styles.emoji}
+
+      src=
+      "https://img.icons8.com/external-justicon-lineal-color-justicon/50/000000/external-emoji-emoji-justicon-lineal-color-justicon-13.png" alt="happy" />,
+    5: <img
+      className={styles.emoji}
+
+      src=
+      "https://img.icons8.com/external-justicon-lineal-color-justicon/50/000000/external-emoji-emoji-justicon-lineal-color-justicon-9.png" alt="excellent" />,
+  };
   return (
     <div className={styles.container}>
       <div className={classNames('container', styles.feedbackContainer)}>
@@ -27,10 +60,14 @@ const UserFeedBack: React.FC = () => {
               labelCol={{ span: 8 }}
               wrapperCol={{ span: 16 }}
               initialValues={{ remember: true }}
-              // onFinish={onFinish}
+              onFinish={(v) => console.log(v)}
               // onFinishFailed={onFinishFailed}
               autoComplete="off"
             >
+              <Form.Item name="rating">
+                <Rate character={({ index }) => customIcons[index + 1]} onChange={(e) => { form.setFieldsValue({ rating: e }) }} />
+
+              </Form.Item>
               <Form.Item
                 name="username"
                 rules={[{ required: true, message: 'Please input your username!' }]}
@@ -47,9 +84,9 @@ const UserFeedBack: React.FC = () => {
                 <Input prefix={<MailOutlined className="site-form-item-icon" />} placeholder="email" />
               </Form.Item>
 
-              <Form.Item name="input-number" noStyle rules={[{ message: 'choose year from range 1-6' }, { type: 'number', min: 1, max: 6, message: 'ss' }]}>
+              {/* <Form.Item name="input-number" noStyle rules={[{ message: 'choose year from range 1-6' }, { type: 'number', min: 1, max: 6, message: 'ss' }]}>
                 <InputNumber min={1} max={6} type="number" placeholder="current year if already a student" />
-              </Form.Item>
+              </Form.Item> */}
 
               <Form.Item name="ssv_graduate" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
                 <Checkbox defaultChecked={false}>are you a <strong>SSV</strong> graduate?(completed 6 years of training)</Checkbox>

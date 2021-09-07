@@ -21,7 +21,7 @@
             background: $left-card-color;
             padding: 20px 0px 0 0px;
             height: 82vh;
-            padding: 0 0px 0 60px;
+            padding: 0 0px 0 70px;
             > h1 {
                 font-size: $font-size-md-large;
                 font-weight: $semi-bold;
@@ -32,6 +32,8 @@
             img {
                 height: 400px;
                 width: 400px;
+                position: relative;
+                left: -3rem;
                 @include breakpoint(desktop) {
                     height: 100px;
                     width: 300px;
@@ -46,7 +48,6 @@
             background-color: $base-bg;
             padding: 50px 20px 0 60px;
             max-height: 82vh;
-            overflow-y: scroll;
             > h1 {
                 font-size: $font-size-heading;
                 font-weight: $regular;
@@ -144,11 +145,24 @@
                 }
             }
             .textArea {
-                height: 150px;
+                height: 100px;
                 background-color: rgba($color: $left-card-color, $alpha: 0.3);
             }
             @include breakpoint(desktop-s) {
                 flex: 1;
+            }
+        }
+        :global .ant-rate-star:not(:last-child) {
+            margin-right: 40px;
+            margin-bottom: 20px;
+        }
+        .emoji {
+            opacity: 0.6;
+            transition: 0.3s ease all;
+
+            &:hover {
+                transition: 0.3s ease all;
+                opacity: 1;
             }
         }
     }
