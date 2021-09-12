@@ -17,6 +17,17 @@ body {
     background-color: $base-bg !important ;
     line-height: 1.5 !important;
     @include clearfix;
+
+    ::-webkit-scrollbar {
+        // Width of vertical scroll bar
+        width: 8px;
+        // Height of horizontal scroll bar
+        height: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+        border-radius: 8px;
+        background: #c2c9d2;
+    }
 }
 
 h1,

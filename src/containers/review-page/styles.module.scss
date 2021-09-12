@@ -4,38 +4,36 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #e0e0e0;
+    min-height: 100vh;
+    max-height: 100%;
 }
 .feedbackContainer {
-    background-color: red;
     width: 100%;
-    height: 80vh;
+    min-height: 80vh auto;
     padding: 0 !important;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     &Card {
         display: flex;
         justify-content: space-between;
 
         .left {
-            flex: 0.39;
+            flex: 0.3;
             background: $left-card-color;
             padding: 20px 0px 0 0px;
-            height: 82vh;
-            padding: 0 0px 0 70px;
+            padding: 0 20px 0 70px;
             > h1 {
-                font-size: $font-size-md-large;
+                font-size: 2vw;
                 font-weight: $semi-bold;
                 color: $header-color !important;
-                padding: 40px 0px 0 0px;
+                padding: 55px 0px 0 0px;
             }
 
             img {
                 height: 400px;
-                width: 400px;
-                position: relative;
-                left: -3rem;
+                width: 500px;
+                // left: -3rem;
                 @include breakpoint(desktop) {
-                    height: 100px;
+                    height: 300px;
                     width: 300px;
                 }
             }
@@ -44,12 +42,13 @@
             }
         }
         .right {
-            flex: 0.61;
+            flex: 0.7;
             background-color: $base-bg;
             padding: 50px 20px 0 60px;
             max-height: 82vh;
+            overflow-y: scroll;
             > h1 {
-                font-size: $font-size-heading;
+                font-size: 2vw;
                 font-weight: $regular;
                 color: $header-color !important;
             }
@@ -84,7 +83,7 @@
                 border-color: transparent;
             }
             :global .ant-form-item {
-                margin-bottom: 30px;
+                // margin-bottom: 20px;
             }
 
             :global .ant-input-affix-wrapper-focused {
@@ -125,9 +124,18 @@
             }
             :global .anticon {
                 margin-right: 10px;
+                font-size: 20px;
+                stroke: #3f3f3f;
+                stroke-width: 30px;
             }
             :global .ant-input-number-handler-wrap {
                 display: none;
+            }
+
+            input::placeholder {
+                /* Chrome, Firefox, Opera, Safari 10.1+ */
+                color: #000;
+                opacity: 0.8; /* Firefox */
             }
 
             input {
@@ -141,7 +149,7 @@
                 border-color: $header-color;
                 height: 60px;
                 > span {
-                    font-size: $font-size-subheading;
+                    font-size: $font-size-normal-heading;
                 }
             }
             .textArea {
@@ -157,12 +165,37 @@
             margin-bottom: 20px;
         }
         .emoji {
-            opacity: 0.6;
+            opacity: 0.5;
             transition: 0.3s ease all;
 
             &:hover {
                 transition: 0.3s ease all;
                 opacity: 1;
+            }
+        }
+        .selectedEmoji {
+            opacity: 1;
+            height: 45px;
+            width: 45px;
+            transition-duration: 0.4s;
+        }
+        .upload {
+            :global .ant-btn {
+                background-color: transparent;
+                border-top: none;
+                border-left: none;
+                border-right: none;
+
+                &:hover {
+                    border-color: $header-color;
+                }
+            }
+            :global .ant-upload-list-item-info {
+                width: 60%;
+                margin-top: 10px;
+                &:hover {
+                    background-color: #e0e0e0;
+                }
             }
         }
     }
