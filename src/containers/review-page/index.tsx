@@ -126,12 +126,12 @@ const UserFeedBack: React.FC = () => {
                 />
               </Form.Item>
               <div style={{ display: 'flex', marginBottom: 20 }}>
-                <Form.Item style={{ flexBasis: '100%' }} name="name" rules={[{ required: true, message: 'Please input your username!' }]}>
+                <Form.Item name="name" rules={[{ required: true, message: 'Please input your username!' }]}>
                   <Input prefix={<UserOutlined type="bo" className="site-form-item-icon" />} placeholder="name" />
                 </Form.Item>
                 <Form.Item
                   name="email"
-                  style={{ flexBasis: '100%' }}
+                  // style={{ flexBasis: '100%' }}
                   rules={[
                     { required: true, message: 'Please enter your email !' },
                     {
