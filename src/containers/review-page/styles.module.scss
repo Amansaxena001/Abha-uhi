@@ -10,7 +10,7 @@
 .feedbackContainer {
     width: 100%;
     min-height: 80vh auto;
-    padding: 0 !important;
+    padding: 0;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     &Card {
         display: flex;
@@ -19,7 +19,6 @@
         .left {
             flex: 0.3;
             background: $left-card-color;
-            padding: 20px 0px 0 0px;
             padding: 0 20px 0 70px;
             > h1 {
                 font-size: 2vw;
@@ -31,14 +30,19 @@
             img {
                 height: 400px;
                 width: 500px;
-                // left: -3rem;
+                left: -3rem;
+                position: relative;
                 @include breakpoint(desktop) {
                     height: 300px;
-                    width: 300px;
+                    width: 500px;
+                    left: -2rem;
                 }
             }
             @include breakpoint(desktop-s) {
                 display: none;
+            }
+            @include breakpoint(desktop) {
+                padding: 0 40px 0 40px;
             }
         }
         .right {
@@ -51,6 +55,18 @@
                 font-size: 2vw;
                 font-weight: $regular;
                 color: $header-color !important;
+                @include breakpoint(desktop-s) {
+                    font-size: 3.5vw;
+                    margin-bottom: 30px;
+                }
+                @include breakpoint(mobile) {
+                    font-size: 25px;
+                }
+            }
+            :global .ant-form > div:nth-child(2) {
+                @include breakpoint(mobile) {
+                    flex-wrap: wrap !important;
+                }
             }
             :global .ant-input-affix-wrapper {
                 background-color: transparent;
@@ -84,6 +100,12 @@
             }
             :global .ant-form-item {
                 // margin-bottom: 20px;
+                flex-basis: 100%;
+                @include breakpoint(desktop-s) {
+                    margin-bottom: 40px;
+                }
+                @include breakpoint(mobile) {
+                }
             }
 
             :global .ant-input-affix-wrapper-focused {
@@ -103,6 +125,12 @@
                 border-left: none;
                 border-right: none;
                 border-radius: 0;
+                @include breakpoint(desktop-s) {
+                    width: 90%;
+                }
+                @include breakpoint(mobile) {
+                    width: 100%;
+                }
             }
             :global .ant-col-offset-8 {
                 margin-left: 0;
@@ -151,13 +179,26 @@
                 > span {
                     font-size: $font-size-normal-heading;
                 }
+                @include breakpoint(desktop-s) {
+                    width: 145%;
+                }
+                @include breakpoint(mobile) {
+                    width: 100%;
+                }
             }
             .textArea {
                 height: 100px;
                 background-color: rgba($color: $left-card-color, $alpha: 0.3);
+                @include breakpoint(desktop-s) {
+                    width: 145%;
+                }
             }
             @include breakpoint(desktop-s) {
                 flex: 1;
+            }
+            @include breakpoint(mobile) {
+                min-height: 100vh;
+                padding: 30px;
             }
         }
         :global .ant-rate-star:not(:last-child) {
@@ -198,5 +239,11 @@
                 }
             }
         }
+    }
+    @include breakpoint(desktop-s) {
+        min-height: 80vh;
+    }
+    @include breakpoint(mobile) {
+        min-height: auto;
     }
 }
