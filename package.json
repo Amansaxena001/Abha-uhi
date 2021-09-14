@@ -8,10 +8,12 @@
         "email": "saxenaaman800@gmail.com"
     },
     "dependencies": {
+        "@ant-design/icons": "^4.6.4",
         "@types/react-redux": "^7.1.16",
         "antd": "^4.16.7",
         "axios": "^0.21.1",
         "classnames": "^2.3.1",
+        "dotenv": "^10.0.0",
         "lodash": "^4.17.21",
         "logger": "0.0.1",
         "next": "^10.0.7",

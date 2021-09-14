@@ -1,7 +1,11 @@
-import axios from 'axios';
+import axios, { AxiosInstance } from 'axios';
 
-export const instance = axios.create({
-    baseURL: 'localhost:8000'
+
+
+export const apiV1: AxiosInstance = axios.create({
+
+    baseURL: process.env.base_URL,
+    timeout: 30000
 });
 type IError = {
     message: string;
