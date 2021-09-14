@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'antd';
-import styles from './styles.module.scss'
+import styles from './styles.module.scss';
 
 interface IProps {
     children: React.ReactNode;
@@ -14,7 +14,7 @@ interface IProps {
     block?: boolean;
     style?: object;
     className?: string;
-    htmlType?: 'submit' | 'button' | 'reset'
+    htmlType?: 'submit' | 'button' | 'reset';
 }
 
 const PrimaryButton: React.FC<IProps> = ({ children, disabled, icon, type, onClickHandler, target, loading, href, block, style, className = '', htmlType }) => (
