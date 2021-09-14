@@ -14,7 +14,7 @@ interface IProps {}
 const Home: React.FC<IProps> = () => {
     return (
         <>
-            <Link href="/review-form">
+            <Link href="/feedback">
                 <div className={styles.feedback}>Feedback</div>
             </Link>
             <div className="container">

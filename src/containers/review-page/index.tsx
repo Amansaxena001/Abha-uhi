@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, {useState } from 'react';
 import classNames from 'classnames';
 // import Image from 'next/image'
 import { Form, Input, Checkbox, InputNumber, Rate, Upload, Button, message } from 'antd';
 import { UserOutlined, MailOutlined, UploadOutlined } from '@ant-design/icons';
 import PrimaryButton from '@app/src/components/primary-button';
+import LoveFooter from '@app/src/components/made-with-love-footer';
 import styles from './styles.module.scss';
 import { useFeeback } from './hooks';
 import { uploadImage } from './api';
@@ -91,6 +92,7 @@ const UserFeedBack: React.FC = () => {
         }
     };
     return (
+        <>
         <div className={styles.container}>
             <div className={classNames('container', styles.feedbackContainer)}>
                 <div className={styles.feedbackContainerCard}>
@@ -170,6 +172,8 @@ const UserFeedBack: React.FC = () => {
                 </div>
             </div>
         </div>
+        <LoveFooter/>
+        </>
     );
 };
 export default UserFeedBack;
