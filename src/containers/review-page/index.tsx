@@ -1,4 +1,4 @@
-import React, {useState } from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 // import Image from 'next/image'
 import { Form, Input, Checkbox, InputNumber, Rate, Upload, Button, message } from 'antd';
@@ -93,86 +93,86 @@ const UserFeedBack: React.FC = () => {
     };
     return (
         <>
-        <div className={styles.container}>
-            <div className={classNames('container', styles.feedbackContainer)}>
-                <div className={styles.feedbackContainerCard}>
-                    <div className={styles.left}>
-                        <h1>
-                            {' '}
-                            We'd love to <br /> hear from you
-                        </h1>
-                        <h4>Answer all the questions, it'll help us to grow </h4>
-                        <img src="/feeback.svg" alt="feed" />
-                    </div>
-                    <div className={styles.right}>
-                        <h1>How satisfied are you with sharda sangeet vidhyalaya ?</h1>
-                        <Form
-                            name="basic"
-                            labelCol={{ span: 8 }}
-                            wrapperCol={{ span: 16 }}
-                            initialValues={{ remember: true }}
-                            onFinish={v => mutate({ ...v })}
-                            // onFinish={e => console.log(e)}
-                            // onFinishFailed={onFinishFailed}
-                            form={form}
-                            autoComplete="off"
-                        >
-                            <Form.Item name="star_rating">
-                                <Rate
-                                    defaultValue={undefined}
-                                    character={({ index }) => customIcons[index + 1]}
-                                    onChange={e => {
-                                        form.setFieldsValue({ star_rating: e });
-                                        setRating(e === 0 ? undefined : e);
-                                    }}
-                                />
-                            </Form.Item>
-                            <div style={{ display: 'flex', marginBottom: 20 }}>
-                                <Form.Item name="name" rules={[{ required: true, message: 'Please input your username!' }]}>
-                                    <Input prefix={<UserOutlined type="bo" className="site-form-item-icon" />} placeholder="name" />
+            <div className={styles.container}>
+                <div className={classNames('container', styles.feedbackContainer)}>
+                    <div className={styles.feedbackContainerCard}>
+                        <div className={styles.left}>
+                            <h1>
+                                {' '}
+                                We'd love to <br /> hear from you
+                            </h1>
+                            <h4>Answer all the questions, it'll help us to grow </h4>
+                            <img src="/feeback.svg" alt="feed" />
+                        </div>
+                        <div className={styles.right}>
+                            <h1>How satisfied are you with sharda sangeet vidhyalaya ?</h1>
+                            <Form
+                                name="basic"
+                                labelCol={{ span: 8 }}
+                                wrapperCol={{ span: 16 }}
+                                initialValues={{ remember: true }}
+                                onFinish={v => mutate({ ...v })}
+                                // onFinish={e => console.log(e)}
+                                // onFinishFailed={onFinishFailed}
+                                form={form}
+                                autoComplete="off"
+                            >
+                                <Form.Item name="star_rating">
+                                    <Rate
+                                        defaultValue={undefined}
+                                        character={({ index }) => customIcons[index + 1]}
+                                        onChange={e => {
+                                            form.setFieldsValue({ star_rating: e });
+                                            setRating(e === 0 ? undefined : e);
+                                        }}
+                                    />
                                 </Form.Item>
-                                <Form.Item
-                                    name="email"
-                                    // style={{ flexBasis: '100%' }}
-                                    rules={[
-                                        { required: true, message: 'Please enter your email !' },
-                                        {
-                                            type: 'email',
-                                            message: 'The input is not valid E-mail!'
-                                        }
-                                    ]}
-                                >
-                                    <Input prefix={<MailOutlined className="site-form-item-icon" />} placeholder="email" />
+                                <div style={{ display: 'flex', marginBottom: 20 }}>
+                                    <Form.Item name="name" rules={[{ required: true, message: 'Please input your username!' }]}>
+                                        <Input prefix={<UserOutlined type="bo" className="site-form-item-icon" />} placeholder="name" />
+                                    </Form.Item>
+                                    <Form.Item
+                                        name="email"
+                                        // style={{ flexBasis: '100%' }}
+                                        rules={[
+                                            { required: true, message: 'Please enter your email !' },
+                                            {
+                                                type: 'email',
+                                                message: 'The input is not valid E-mail!'
+                                            }
+                                        ]}
+                                    >
+                                        <Input prefix={<MailOutlined className="site-form-item-icon" />} placeholder="email" />
+                                    </Form.Item>
+                                </div>
+
+                                <Form.Item name="student_year_count" noStyle>
+                                    <InputNumber min={1} max={6} type="number" placeholder="current year if already a student" />
                                 </Form.Item>
-                            </div>
 
-                            <Form.Item name="student_year_count" noStyle>
-                                <InputNumber min={1} max={6} type="number" placeholder="current year if already a student" />
-                            </Form.Item>
-
-                            <Form.Item name="ssv_graduate" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
-                                <Checkbox defaultChecked={false}>
-                                    are you a <strong>SSV</strong> graduate?(completed 6 years of training)
-                                </Checkbox>
-                            </Form.Item>
-                            <Form.Item name="review_content" rules={[{ required: true, message: 'Please write a short review' }]}>
-                                <Input.TextArea autoSize={false} placeholder="tell us about your experience at SSV" className={styles.textArea} />
-                            </Form.Item>
-                            <Upload maxCount={1} className={styles.upload} {...props}>
-                                <Button icon={<UploadOutlined />}>Upload Photo </Button>
-                            </Upload>
-                            <Form.Item hidden name="profile_avatar" />
-                            <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                                <PrimaryButton loading={isLoading} type="primary" htmlType="submit" className={styles.submitBtn}>
-                                    submit feedback
-                                </PrimaryButton>
-                            </Form.Item>
-                        </Form>
+                                <Form.Item name="ssv_graduate" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
+                                    <Checkbox defaultChecked={false}>
+                                        are you a <strong>SSV</strong> graduate?(completed 6 years of training)
+                                    </Checkbox>
+                                </Form.Item>
+                                <Form.Item name="review_content" rules={[{ required: true, message: 'Please write a short review' }]}>
+                                    <Input.TextArea autoSize={false} placeholder="tell us about your experience at SSV" className={styles.textArea} />
+                                </Form.Item>
+                                <Upload maxCount={1} className={styles.upload} {...props}>
+                                    <Button icon={<UploadOutlined />}>Upload Photo </Button>
+                                </Upload>
+                                <Form.Item hidden name="profile_avatar" />
+                                <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+                                    <PrimaryButton loading={isLoading} type="primary" htmlType="submit" className={styles.submitBtn}>
+                                        submit feedback
+                                    </PrimaryButton>
+                                </Form.Item>
+                            </Form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <LoveFooter/>
+            <LoveFooter />
         </>
     );
 };

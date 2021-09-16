@@ -3,7 +3,8 @@
 .container {
     background: $primary-card;
     width: 380px;
-    min-height: 500px auto;
+    min-height: 580px;
+    max-height: max-content;
     border-radius: 4px;
     margin: 10px 0 10px 0;
     padding: 20px 30px;
@@ -12,6 +13,19 @@
     flex-direction: column;
     margin-top: 100px;
     margin-bottom: 50px;
+
+    &__cta {
+        background-color: $color-orange;
+        border-radius: 20px;
+        border-color: transparent;
+        padding: 10px 79px;
+        margin: 14px 0 0 0;
+        height: max-content;
+        cursor: not-allowed;
+        > span {
+            font-weight: $semi-bold;
+        }
+    }
     h5 {
         color: $color-white !important;
         //    &::before{
@@ -65,12 +79,18 @@
         color: $color-orange;
         opacity: 1;
     }
+    :global .ant-tabs-tabs {
+        padding: 0 10px 0 10px;
+    }
     :global .ant-tabs-tab + .ant-tabs-tab {
-        margin-left: 7rem;
+        margin-left: 8rem;
     }
     :global .ant-tabs-ink-bar {
-        // width: 40% !important;
+        width: 30% !important;
         background-color: $color-orange;
+    }
+    :global .ant-tabs-nav::before {
+        border-bottom: 2px solid #f0f0f0 !important;
     }
 
     &__leftTabContent {

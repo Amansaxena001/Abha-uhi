@@ -2,11 +2,11 @@
 
 .outerContainer {
     background-color: $color-dark-grey;
-    padding: 70px 0 40px 0;
     &Items {
         display: flex;
         justify-content: space-between;
-        gap: 50px;
+        flex-wrap: wrap;
+        padding: 40px 0 0px 0;
     }
     &Child {
         min-width: 220px;
@@ -18,6 +18,7 @@
             color: $color-white;
             margin-top: 3px;
             opacity: 0.7;
+            max-width: 303px;
         }
         > ul {
             li {
