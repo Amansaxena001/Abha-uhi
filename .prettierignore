@@ -6,3 +6,9 @@ public
 package-lock.json
 package.json
 styles
+.eslintrc.js 
+.prettierrc.json
+.vscode/settings.json
+next.config.js 
+README.md 
+tsconfig.json
