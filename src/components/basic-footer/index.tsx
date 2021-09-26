@@ -41,7 +41,6 @@ const BasicFooter: React.FC<IProps> = () => {
                         </li>
                     </ul>
                 </div>
-
                 <div className={styles.outerContainerChild}>
                     <h2>Address</h2>
                     <p>
