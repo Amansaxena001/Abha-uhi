@@ -6,13 +6,14 @@ import Banner from './banner';
 import HeroSection from './hero-section/HeroSection';
 import Courses from './our-courses/Courses';
 
-interface IProps {}
+interface IProps { }
 
 const Home: React.FC<IProps> = () => {
     return (
         <>
+            <BasicNavbar />
+
             <div className="container">
-                <BasicNavbar />
                 <HeroSection />
             </div>
             <Banner />

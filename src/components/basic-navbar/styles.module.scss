@@ -11,9 +11,18 @@
     color: $primary-dark;
     font-size: $font-size-normal;
     cursor: pointer;
+
+    .logo {
+        position: relative;
+        top: -32px;
+    }
 }
 
 .rightContainer {
     margin-left: auto;
     @extend .leftContainer;
+
+    a {
+        color: $primary-dark;
+    }
 }
