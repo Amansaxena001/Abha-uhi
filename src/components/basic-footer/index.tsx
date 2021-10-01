@@ -41,7 +41,6 @@ const BasicFooter: React.FC<IProps> = () => {
                         </li>
                     </ul>
                 </div>
-
                 <div className={styles.outerContainerChild}>
                     <h2>Address</h2>
                     <p>
@@ -55,7 +54,7 @@ const BasicFooter: React.FC<IProps> = () => {
                 </div>
             </div>
             <hr />
-            <div className={classNames('container', styles.copyRight)}>Copyright 2021-2022 sharda sangeet vidhyalaya</div>
+            <div className={classNames('container', styles.copyRight)}>Copyright ©️ 2021-2022 sharda sangeet vidhyalaya</div>
         </div>
     );
 };

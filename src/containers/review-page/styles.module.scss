@@ -216,8 +216,7 @@
         }
         .selectedEmoji {
             opacity: 1;
-            height: 45px;
-            width: 45px;
+            transform: scale(1.03);
             transition-duration: 0.4s;
         }
         .upload {

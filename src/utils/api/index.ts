@@ -1,9 +1,6 @@
 import axios, { AxiosInstance } from 'axios';
 
-
-
 export const apiV1: AxiosInstance = axios.create({
-
     baseURL: process.env.base_URL,
     timeout: 30000
 });

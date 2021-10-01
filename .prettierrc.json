@@ -8,6 +8,5 @@
     "jsxBracketSameLine": false,
     "arrowParens": "avoid",
     "printWidth": 160,
-    "trailingComma": "none",
-    "tabSize": 4
+    "trailingComma": "none"
 }
