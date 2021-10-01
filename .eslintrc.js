@@ -15,6 +15,9 @@ module.exports = {
     plugins: ['react', '@typescript-eslint'],
     rules: {
         'arrow-body-style': ['off', 'always'],
+        // indent: ['error', 4],
+        'no-multi-spaces': ['error'],
+        'no-trailing-spaces': 'error',
         'react/prop-types': 'off', // We will use TypeScript"s types for component props instead
         'jsx-a11y/anchor-is-valid': 'off',
         'linebreak-style': 'off',

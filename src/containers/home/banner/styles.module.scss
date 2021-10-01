@@ -4,6 +4,8 @@
     padding: 50px 0px 80px 0px;
     margin-top: 40px;
     background-color: $color-banner;
+    display: flex;
+
     .c__shortSeparator {
         height: 6px;
         width: 250px;
@@ -24,6 +26,7 @@
         h1 {
             color: $color-white !important;
             font-size: $font-size-large;
+            margin: 0 !important;
         }
     }
     .c__content__text {

@@ -5,9 +5,6 @@ export default combineReducers({
     error: errorReducer
 });
 
-
-
-
 /*
 f1(cb){
     cb()

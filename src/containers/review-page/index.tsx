@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { Form, Input, Checkbox, InputNumber, Rate, Upload, Button, message } from 'antd';
 import { UserOutlined, MailOutlined, UploadOutlined } from '@ant-design/icons';
 import PrimaryButton from '@app/src/components/primary-button';
-import BasicNavbar from '@app/src/components/basic-navbar';
+import LoveFooter from '@app/src/components/made-with-love-footer';
 import styles from './styles.module.scss';
 import { useFeeback } from './hooks';
 import { uploadImage } from './api';
@@ -92,9 +92,7 @@ const UserFeedBack: React.FC = () => {
     }
   };
   return (
-
     <>
-      <BasicNavbar />
       <div className={styles.container}>
         <div className={classNames('container', styles.feedbackContainer)}>
           <div className={styles.feedbackContainerCard}>
@@ -174,6 +172,7 @@ const UserFeedBack: React.FC = () => {
           </div>
         </div>
       </div>
+      <LoveFooter />
     </>
   );
 };
