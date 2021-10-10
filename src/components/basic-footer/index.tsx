@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import styles from './styles.module.scss';
 
-interface IProps {}
+interface IProps { }
 
 const BasicFooter: React.FC<IProps> = () => {
     return (
@@ -49,8 +49,13 @@ const BasicFooter: React.FC<IProps> = () => {
                     </p>
                 </div>
                 <div className={styles.outerContainerChild}>
-                    <h2>Contact us</h2>
-                    <p className={styles.contactUs}>shardasangeetvid@gmail.com</p>
+                    <h2>Contact us</h2><br />
+                    <Link href="#" >
+                        <a className={styles.contactUs} href="mailto:example@example.com" target="_blank" rel="noreferrer">
+                            shardasangeetvid@gmail.com
+                        </a>
+                    </Link>
+
                 </div>
             </div>
             <hr />

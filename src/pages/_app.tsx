@@ -8,6 +8,16 @@ import { Provider } from 'react-redux';
 import { createWrapper } from 'next-redux-wrapper';
 
 import { store } from '@app/src/redux/store';
+// import BasicNavbar from '../components/basic-navbar';
+import Router from 'next/router'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+
+Router.events.on('routeChangeStart', () => NProgress.start())
+Router.events.on('routeChangeComplete', () => NProgress.done())
+Router.events.on('routeChangeError', () => NProgress.done())
+NProgress.configure({ showSpinner: false })
+
 
 function MyApp({ Component, pageProps }) {
     const [queryClient] = React.useState<QueryClient>(() => new QueryClient());
@@ -22,6 +32,7 @@ function MyApp({ Component, pageProps }) {
             <QueryClientProvider client={queryClient}>
                 <Hydrate state={pageProps.dehydratedState}>
                     {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+                    {/* <BasicNavbar /> */}
                     <Component {...pageProps} />
                 </Hydrate>
             </QueryClientProvider>

@@ -1,0 +1,60 @@
+@import 'styles/utils/index';
+
+.outerContainer {
+    padding: 40px 0 20px 0;
+    > strong {
+        font-size: $font-size-md-large;
+    }
+    > span {
+        font-size: $font-size-large;
+    }
+}
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    div:nth-child(1) {
+        flex: 0.5;
+        h2 {
+            margin-top: 40px;
+        }
+        p {
+            width: 70%;
+            font-size: $font-size-normal-heading;
+        }
+    }
+
+    &__Logo {
+        flex: 0.4;
+        margin-bottom: 5rem;
+        margin-left: auto;
+
+        h2 {
+            text-align: left;
+        }
+        > img {
+            flex: 0.4;
+            width: 25vw;
+        }
+    }
+}
+.container__2 {
+    @extend .container;
+    justify-content: space-between;
+    box-sizing: border-box;
+    align-items: center;
+    padding-top: 4rem;
+
+    div:nth-child(2) {
+        flex: 0.4;
+    }
+
+    &__Logo {
+        border-radius: 8px;
+
+        img {
+            width: 25vw;
+        }
+    }
+}
