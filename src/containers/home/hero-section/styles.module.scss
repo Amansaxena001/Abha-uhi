@@ -1,5 +1,19 @@
 @import 'styles/utils/index';
 
+.parent {
+    background-image: url('/header.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 100px 0 300px 0;
+    width: auto;
+    @include breakpoint(desktop-s) {
+        height: 73vw;
+    }
+    @include breakpoint(tablet) {
+        background-image: none;
+        padding-bottom: 40rem;
+    }
+}
 .headerText {
     font-size: $font-size-large;
     line-height: 85px;
@@ -26,7 +40,7 @@
     }
 }
 .stats {
-    margin-top: 100px;
+    margin-top: 70px;
     display: flex;
     gap: 60px;
     .s__text {
@@ -39,5 +53,15 @@
             font-weight: $semi-bold;
             opacity: 0.7;
         }
+    }
+}
+
+.subTitle {
+    font-weight: $semi-bold;
+    opacity: 0.7;
+    > img {
+        opacity: 1 !important;
+        position: relative;
+        top: -4px;
     }
 }

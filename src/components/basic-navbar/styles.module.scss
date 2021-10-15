@@ -1,8 +1,18 @@
 @import 'styles/utils/index';
 
+.outerContainer {
+    padding-top: 30px;
+    // position: fixed;
+    // box-shadow: rgb(3 27 78 / 10%) 0px 2px 4px;
+    // top: 0;
+    // left: 0;
+    // right: 0;
+    // z-index: 1000;
+    // background-color: #2f4858;
+}
 .nav {
     display: flex;
-    padding-top: 30px;
+    align-items: center;
 }
 .leftContainer {
     display: flex;
@@ -11,9 +21,19 @@
     color: $primary-dark;
     font-size: $font-size-normal;
     cursor: pointer;
+
+    .logo {
+        position: relative;
+        top: -32px;
+    }
 }
 
 .rightContainer {
     margin-left: auto;
     @extend .leftContainer;
+    font-weight: $semi-bold;
+
+    a {
+        color: $primary-dark;
+    }
 }
