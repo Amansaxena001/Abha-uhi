@@ -8,16 +8,28 @@
         flex-wrap: wrap;
         padding: 40px 0 20px 0;
         gap: 15px;
+        box-sizing: border-box;
+        @include breakpoint(mobile) {
+            padding-left: 20px;
+            gap: 30px;
+        }
     }
     &Child {
         min-width: 220px;
+
         > h2 {
             color: $color-white !important;
             display: inline-block;
+            @include breakpoint(mobile) {
+                min-width: 90px;
+            }
         }
         h3 {
             color: $color-white !important;
             margin: 0;
+            @include breakpoint(mobile) {
+                font-size: 12px;
+            }
         }
 
         > p {
@@ -41,6 +53,7 @@
                     opacity: 0.7;
                     transition: 0.3s;
                     width: 100px;
+
                     &:hover {
                         color: $color-white;
                         opacity: 1;
@@ -66,5 +79,10 @@
         color: $color-white;
         opacity: 0.7;
         padding: 10px 0 20px 0;
+        @include breakpoint(mobile) {
+            font-size: 12px;
+            padding-left: 20px;
+            text-align: center;
+        }
     }
 }

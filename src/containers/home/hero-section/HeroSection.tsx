@@ -16,7 +16,7 @@ const HeroSection: React.FC<IProps> = () => {
                 <h1 className={styles.headerText}>
                     Sharda Sangeet <br /> Vidhyalaya
                 </h1>
-                <div className={styles.subTitle}>Teaching Hindustani Classical Music since <img src="/1985.svg" alt="time" /></div>
+                <div className={styles.subTitle}>Teaching Hindustani Classical Music since <img src="/1990.svg" alt="time" /></div>
                 <PrimaryButton className={styles.h__btn} type="primary" onClickHandler={() => console.log('Hll')}>
                     Lets Start
                 </PrimaryButton>
