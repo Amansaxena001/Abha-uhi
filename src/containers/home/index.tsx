@@ -1,6 +1,5 @@
 import BasicFooter from '@app/src/components/basic-footer';
 import TopNotificationBar from '@app/src/components/basic-navbar/sticky-notify-bar';
-import CourseCard from '@app/src/components/course-cards';
 // import CourseCard from '@app/src/components/course-cards';
 import React from 'react';
 // import Link from 'next/link';
@@ -22,7 +21,7 @@ const Home: React.FC<IProps> = () => {
             <OurMission />
             <Banner />
             <div className="container">
-                <CourseCard />
+                {/* <CourseCard /> */}
                 <Offerings />
             </div>
             <BasicFooter />

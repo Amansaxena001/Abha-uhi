@@ -17,7 +17,7 @@ const Offerings: React.FC = () => {
       </div>
       <div className={styles.container__2}>
         <div className={styles.container__2__Logo} >
-          <img src="/cert.svg" alt="graduate" />
+          <img src="/cert.svg" alt="certificate" />
         </div>
         <div>
           <h2>Graduate with a degree <br /> equivalent to <strong>B.A</strong></h2>

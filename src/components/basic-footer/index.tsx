@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 import Link from 'next/link';
+import { PhoneFilled } from '@ant-design/icons';
 import styles from './styles.module.scss';
 
 interface IProps { }
@@ -12,19 +13,22 @@ const BasicFooter: React.FC<IProps> = () => {
                 <div className={styles.outerContainerChild}>
                     <h2>About us</h2>
                     <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe rerum perspiciatis, non veniam nobis ipsam alias eos quasi est nemo
-                        excepturi doloribus tenetur, totam unde, quaerat dolore nesciunt vitae enim.
+                        We are a music school specifically focused on teaching Hindustani Classical Music i'e
+                        vocals and synthesizers. The school has been running since 1990 and as of today, it's a
+                        registered <strong>Govt center</strong>  under <strong>Prayag Sangeet Samiti, Allahabad</strong> .
+                        The school follows strict sllaybus decided by Prayag Sangeet
+                        Samiti who is also responsible for conducts examinations all over India every year.
                     </p>
                 </div>
                 <div className={styles.outerContainerChild}>
                     <h2>Quick links</h2>
                     <ul>
                         <li>
-                            <Link href="/">
-                                <a>courses</a>
+                            <Link href="/feedback">
+                                <a>submit feedback</a>
                             </Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link href="/about">
                                 <a>certifications</a>
                             </Link>
@@ -38,7 +42,7 @@ const BasicFooter: React.FC<IProps> = () => {
                             <Link href="/blog/hello-world">
                                 <a>institute information</a>
                             </Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
                 <div className={styles.outerContainerChild}>
@@ -54,7 +58,14 @@ const BasicFooter: React.FC<IProps> = () => {
                         <a className={styles.contactUs} href="mailto:example@example.com" target="_blank" rel="noreferrer">
                             shardasangeetvid@gmail.com
                         </a>
-                    </Link>
+                    </Link><br />
+                    <div style={{
+                        display: 'flex', alignItems: 'center', gap: '15px', marginTop:
+                            20
+                    }}>
+                        <PhoneFilled className={styles.phone} /><h3>+91 9953207024 </h3>
+                    </div>
+
 
                 </div>
             </div>

@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 // import Image from 'next/image'
 import { Form, Input, Checkbox, InputNumber, Rate, Upload, Button, message } from 'antd';
 import { UserOutlined, MailOutlined, UploadOutlined } from '@ant-design/icons';
 import PrimaryButton from '@app/src/components/primary-button';
 import LoveFooter from '@app/src/components/made-with-love-footer';
+import { _getError } from '@app/src/utils/api';
+import startCase from 'lodash/startCase'
 import styles from './styles.module.scss';
 import { useFeeback } from './hooks';
 import { uploadImage } from './api';
 
 const UserFeedBack: React.FC = () => {
   const [form] = Form.useForm();
-  const [rating, setRating] = useState(0);
-  const { mutate, isLoading } = useFeeback();
+  const [rating, setRating] = useState<number>(0);
+  const { mutate, isLoading, isError, error: feedbackError, data: resp } = useFeeback();
   const [uploadLimit, setUploadimit] = useState<number>(0);
 
   const customIcons = {
@@ -59,10 +61,8 @@ const UserFeedBack: React.FC = () => {
         message.error('You have exceeded upload limit');
         return Upload.LIST_IGNORE;
       }
-      if (file.type !== 'image/png') {
-        // message.error(`${file.name} is not a png file`);
-      }
-      if (file.type !== ('image/png' || 'image/jpg' || 'image/jpeg')) {
+
+      if (!['image/png', 'image/jpg', 'image/jpeg'].includes(file.type)) {
         message.error('Please upload image of format png, jpg, jpeg');
         return Upload.LIST_IGNORE;
       }
@@ -91,6 +91,15 @@ const UserFeedBack: React.FC = () => {
       }
     }
   };
+  useEffect(() => {
+    if (isError) {
+      message.error(_getError(feedbackError)?.message)
+    }
+    if (resp) {
+      message.success(startCase(resp?.message))
+    }
+
+  }, [isError, resp])
   return (
     <>
       <div className={styles.container}>

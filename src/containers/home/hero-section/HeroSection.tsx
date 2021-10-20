@@ -6,7 +6,12 @@ interface IProps { }
 
 const HeroSection: React.FC<IProps> = () => {
     return (
-        <div className={styles.parent}>
+        <div className={styles.parent} data-aos-anchor-easing='ease-in-out' data-aos-delay='0' data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-easing="ease-out-back"
+            // data-aos-mirror="true"
+            data-aos-once="false"
+        >
             <div className="container">
                 <h1 className={styles.headerText}>
                     Sharda Sangeet <br /> Vidhyalaya

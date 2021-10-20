@@ -6,7 +6,8 @@
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
-        padding: 40px 0 0px 0;
+        padding: 40px 0 20px 0;
+        gap: 15px;
     }
     &Child {
         min-width: 220px;
@@ -14,11 +15,23 @@
             color: $color-white !important;
             display: inline-block;
         }
+        h3 {
+            color: $color-white !important;
+            margin: 0;
+        }
+
         > p {
             color: $color-white;
             margin-top: 3px;
             opacity: 0.7;
-            max-width: 303px;
+            max-width: 320px;
+            text-align: justify;
+            letter-spacing: -0.5px;
+            line-height: 2em;
+            > strong {
+                color: $color-light-orange;
+                opacity: 1;
+            }
         }
         > ul {
             li {
@@ -39,6 +52,11 @@
         .contactUs {
             color: $color-light-orange;
             opacity: 1;
+        }
+        .phone {
+            color: $color-aqua;
+            transform: rotate(-135deg);
+            font-size: 24px;
         }
     }
     hr {

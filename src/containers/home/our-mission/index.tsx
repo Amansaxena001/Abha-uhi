@@ -10,11 +10,12 @@ const OurMission: React.FC = () => {
           <h2>Our Mission</h2>
           <strong>Who we are</strong><span>?</span>
           <h3>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quo neque magnam inventore, fuga ea cum perspiciatis eligendi
-            nisi quibusdam odit illo voluptatem, iusto praesentium. Aut minima consequatur porro! Magni?
-            nisi quibusdam odit illo voluptatem, iusto praesentium. Aut minima consequatur porro! Magni?
-            nisi quibusdam odit illo voluptatem, iusto praesentium. Aut minima consequatur porro! Magni?
-            nisi quibusdam odit illo voluptatem, iusto praesentium. Aut minima consequatur porro! Magni?
+            We are a music school specifically focused on teaching Hindustani Classical
+            Music i'e vocals and synthesizers. The school has been running since 1990 and
+            as of today, it's a registered Govt center under Prayag Sangeet Samiti,
+            Allahabad. The school follows strict sllaybus decided by Prayag Sangeet
+            Samiti who is also responsible for conducts examinations all over India every year.
+            Every year more than 100+ students appear for examination from 1st year to 6th year.
           </h3>
         </div>
         <div className={styles.childContainerRight}>
