@@ -7,8 +7,16 @@
     padding-bottom: 50px;
     align-items: center;
 
+    @include breakpoint(mobile) {
+        justify-content: center;
+    }
+
     &Left {
         flex: 0.5;
+        @include breakpoint(mobile) {
+            flex: 1;
+            text-align: center;
+        }
         > h2 {
             opacity: 0.7;
             text-decoration: underline;
@@ -25,10 +33,15 @@
     }
     &Right {
         flex: 0.5;
+        @include breakpoint(mobile) {
+            flex: 0;
+        }
         .logo {
             margin-left: auto;
             width: 100vw;
-
+            @include breakpoint(mobile) {
+                display: none;
+            }
             @include breakpoint(desktop-s) {
                 height: 500px;
                 width: 500px;

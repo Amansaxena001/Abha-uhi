@@ -5,13 +5,19 @@
     margin-top: 40px;
     background-color: $color-banner;
     display: flex;
-
+    @include breakpoint(mobile) {
+        text-align: center;
+    }
     .c__shortSeparator {
         height: 6px;
         width: 250px;
         background-color: $color-white;
         border-radius: 6px;
         opacity: 0.7;
+        @include breakpoint(mobile) {
+            margin-left: auto;
+            margin-right: auto;
+        }
     }
     .c__headerText {
         color: $color-orange !important;
@@ -33,6 +39,9 @@
         color: $color-white !important;
         font-size: $font-size-normal-heading;
         width: 60%;
+        @include breakpoint(mobile) {
+            width: 100%;
+        }
     }
     a {
         text-decoration: underline;

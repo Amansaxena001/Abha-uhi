@@ -7,11 +7,18 @@
     padding: 100px 0 300px 0;
     width: auto;
     @include breakpoint(desktop-s) {
-        height: 73vw;
+        width: 100%;
     }
     @include breakpoint(tablet) {
         background-image: none;
-        padding-bottom: 40rem;
+        background-size: 0;
+        height: 90vw;
+    }
+    @include breakpoint(mobile) {
+        height: 100%;
+        padding-bottom: 0;
+        justify-content: center;
+        align-items: center;
     }
 }
 .headerText {
@@ -19,6 +26,11 @@
     line-height: 85px;
     font-weight: $bold;
     margin-top: 90px;
+    @include breakpoint(mobile) {
+        font-size: $font-size-md-large;
+        line-height: 54px;
+        text-align: center;
+    }
 }
 .h__btn {
     padding: 1px 150px;
@@ -38,11 +50,19 @@
         background-color: $primary-dark;
         border-color: $primary-dark;
     }
+    @include breakpoint(mobile) {
+        display: none;
+    }
 }
 .stats {
     margin-top: 70px;
     display: flex;
     gap: 60px;
+    @include breakpoint(mobile) {
+        justify-content: space-around;
+        align-items: center;
+        justify-content: center;
+    }
     .s__text {
         > h1 {
             font-weight: $bold;
@@ -63,5 +83,9 @@
         opacity: 1 !important;
         position: relative;
         top: -4px;
+    }
+    @include breakpoint(mobile) {
+        text-align: center;
+        max-width: 90%;
     }
 }

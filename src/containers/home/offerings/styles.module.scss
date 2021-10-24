@@ -4,9 +4,15 @@
     padding: 40px 0 20px 0;
     > strong {
         font-size: $font-size-md-large;
+        @include breakpoint(mobile) {
+            font-size: 42px;
+        }
     }
     > span {
         font-size: $font-size-large;
+    }
+    @include breakpoint(mobile) {
+        text-align: center;
     }
 }
 .container {
@@ -16,15 +22,24 @@
 
     div:nth-child(1) {
         flex: 0.5;
+        @include breakpoint(mobile) {
+            flex: 1;
+        }
         h2 {
             margin-top: 40px;
             font-weight: $semi-bold;
             font-size: $font-size-heading;
             text-decoration: underline;
+            @include breakpoint(mobile) {
+                font-size: $font-size-subheading-mobile;
+            }
         }
         p {
             width: 70%;
             font-size: $font-size-normal-heading;
+            @include breakpoint(mobile) {
+                width: 100%;
+            }
         }
     }
 
@@ -32,7 +47,9 @@
         flex: 0.4;
         margin-bottom: 5rem;
         margin-left: auto;
-
+        @include breakpoint(mobile) {
+            display: none;
+        }
         h2 {
             text-align: left;
         }
@@ -51,21 +68,30 @@
     box-sizing: border-box;
     align-items: center;
     padding-top: 4rem;
+
     h2 {
         font-size: $font-size-heading;
         text-decoration: underline;
         font-weight: $semi-bold;
+        @include breakpoint(mobile) {
+            font-size: $font-size-subheading-mobile;
+        }
     }
     p {
         font-size: $font-size-normal-heading;
     }
     div:nth-child(2) {
         flex: 0.4;
+        @include breakpoint(mobile) {
+            flex: 1;
+        }
     }
 
     &__Logo {
         border-radius: 8px;
-
+        @include breakpoint(mobile) {
+            display: none;
+        }
         img {
             width: 25vw;
             @include breakpoint(desktop-s) {
