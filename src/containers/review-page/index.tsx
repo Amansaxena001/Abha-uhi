@@ -7,6 +7,7 @@ import PrimaryButton from '@app/src/components/primary-button';
 import LoveFooter from '@app/src/components/made-with-love-footer';
 import { _getError } from '@app/src/utils/api';
 import startCase from 'lodash/startCase'
+import Link from 'next/link'
 import styles from './styles.module.scss';
 import { useFeeback } from './hooks';
 import { uploadImage } from './api';
@@ -102,6 +103,16 @@ const UserFeedBack: React.FC = () => {
   }, [isError, resp])
   return (
     <>
+      <div className="container">
+        <Link href="/" >
+          <img src="https://img.icons8.com/small/48/000000/left.png" alt="back-arrow" style={{
+            position: 'relative', top: 20,
+            margin: 0, cursor: 'pointer',
+            opacity: 0.7
+          }} />
+        </Link>
+      </div>
+
       <div className={styles.container}>
         <div className={classNames('container', styles.feedbackContainer)}>
           <div className={styles.feedbackContainerCard}>

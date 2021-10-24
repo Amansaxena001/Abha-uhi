@@ -2,9 +2,11 @@ import PrimaryButton from '@app/src/components/primary-button';
 import React from 'react';
 import styles from './styles.module.scss';
 
-interface IProps { }
+interface IProps {
+    ourMissionRef: any
+}
 
-const HeroSection: React.FC<IProps> = () => {
+const HeroSection: React.FC<IProps> = ({ ourMissionRef }) => {
     return (
         <div className={styles.parent} data-aos-anchor-easing='ease-in-out' data-aos-delay='0' data-aos="fade-up"
             data-aos-duration="1000"
@@ -17,7 +19,7 @@ const HeroSection: React.FC<IProps> = () => {
                     Sharda Sangeet <br /> Vidhyalaya
                 </h1>
                 <div className={styles.subTitle}>Teaching Hindustani Classical Music since <img src="/1990.svg" alt="time" /></div>
-                <PrimaryButton className={styles.h__btn} type="primary" onClickHandler={() => console.log('Hll')}>
+                <PrimaryButton className={styles.h__btn} type="primary" onClickHandler={() => ourMissionRef?.current?.scrollIntoView({ behavior: 'smooth' })} >
                     Lets Start
                 </PrimaryButton>
 
@@ -32,7 +34,7 @@ const HeroSection: React.FC<IProps> = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
