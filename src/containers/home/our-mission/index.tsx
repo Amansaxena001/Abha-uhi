@@ -2,9 +2,13 @@ import classNames from 'classnames'
 import React from 'react'
 import styles from './styles.module.scss'
 
-const OurMission: React.FC = () => {
+interface IProps {
+  sliderRef: any
+}
+
+const OurMission: React.FC<IProps> = ({ sliderRef }) => {
   return (
-    <div>
+    <div ref={sliderRef}>
       <div className={classNames('container', styles.childContainer)}>
         <div className={styles.childContainerLeft}>
           <h2>Our Mission</h2>
