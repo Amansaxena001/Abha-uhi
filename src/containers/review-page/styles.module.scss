@@ -13,6 +13,9 @@
     min-height: 80vh auto;
     padding: 0;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    @include breakpoint(mobile) {
+        box-shadow: none;
+    }
     &Card {
         display: flex;
         justify-content: space-between;
@@ -205,6 +208,9 @@
         :global .ant-rate-star:not(:last-child) {
             margin-right: 40px;
             margin-bottom: 20px;
+            @include breakpoint(mobile) {
+                margin-right: 26px;
+            }
         }
         .emoji {
             opacity: 0.5;
@@ -217,7 +223,7 @@
         }
         .selectedEmoji {
             opacity: 1;
-            transform: scale(1.03);
+            transform: scale(1.2);
             transition-duration: 0.4s;
         }
         .upload {

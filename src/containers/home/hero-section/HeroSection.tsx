@@ -3,12 +3,16 @@ import React from 'react';
 import styles from './styles.module.scss';
 
 interface IProps {
-    ourMissionRef: any
+    ourMissionRef: any;
 }
 
 const HeroSection: React.FC<IProps> = ({ ourMissionRef }) => {
     return (
-        <div className={styles.parent} data-aos-anchor-easing='ease-in-out' data-aos-delay='0' data-aos="fade-up"
+        <div
+            className={styles.parent}
+            data-aos-anchor-easing="ease-in-out"
+            data-aos-delay="0"
+            data-aos="fade-up"
             data-aos-duration="1000"
             data-aos-easing="ease-out-back"
             // data-aos-mirror="true"
@@ -18,8 +22,16 @@ const HeroSection: React.FC<IProps> = ({ ourMissionRef }) => {
                 <h1 className={styles.headerText}>
                     Sharda Sangeet <br /> Vidhyalaya
                 </h1>
-                <div className={styles.subTitle}>Teaching Hindustani Classical Music since <img src="/1990.svg" alt="time" /></div>
-                <PrimaryButton className={styles.h__btn} type="primary" onClickHandler={() => ourMissionRef?.current?.scrollIntoView({ behavior: 'smooth' })} >
+                <div className={styles.subTitle}>
+                    Live one-on-one, interactive sessions with the Guru <br />
+                    <strong>Mrs. Poonam Saxena</strong>
+                    <br />
+                    <br />
+                </div>
+                <div className={styles.subTitle__2}>
+                    No matter if you are a beginner(5 year old or 20 year) or a professional musician you can have confidence on our teaching methods{' '}
+                </div>
+                <PrimaryButton className={styles.h__btn} type="primary" onClickHandler={() => ourMissionRef?.current?.scrollIntoView({ behavior: 'smooth' })}>
                     Lets Start
                 </PrimaryButton>
 
@@ -34,7 +46,7 @@ const HeroSection: React.FC<IProps> = ({ ourMissionRef }) => {
                     </div>
                 </div>
             </div>
-        </div >
+        </div>
     );
 };
 
