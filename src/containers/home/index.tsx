@@ -11,7 +11,7 @@ import Offerings from './offerings';
 import OurMission from './our-mission';
 // import styles from './styles.module.scss';
 
-interface IProps { }
+interface IProps {}
 
 const Home: React.FC<IProps> = () => {
     return (
