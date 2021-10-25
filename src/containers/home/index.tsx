@@ -1,7 +1,7 @@
 import BasicFooter from '@app/src/components/basic-footer';
 import TopNotificationBar from '@app/src/components/basic-navbar/sticky-notify-bar';
 // import CourseCard from '@app/src/components/course-cards';
-import React from 'react';
+import React, { useRef } from 'react';
 // import Link from 'next/link';
 import Banner from './banner';
 // import Gallery from './gallery-section/Gallery';
@@ -14,11 +14,13 @@ import OurMission from './our-mission';
 interface IProps {}
 
 const Home: React.FC<IProps> = () => {
+    const ref = useRef(null);
+
     return (
         <>
             <TopNotificationBar />
-            <HeroSection />
-            <OurMission />
+            <HeroSection ourMissionRef={ref} />
+            <OurMission sliderRef={ref} />
             <Banner />
             <div className="container">
                 {/* <CourseCard /> */}
