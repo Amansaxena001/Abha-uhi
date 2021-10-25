@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import styles from './styles.module.scss';
 
-interface IProps { }
+interface IProps {}
 
 const BasicNavbar: React.FC<IProps> = () => (
     <div className={styles.outerContainer}>
@@ -17,14 +17,12 @@ const BasicNavbar: React.FC<IProps> = () => (
             </div>
             <div className={styles.rightContainer}>
                 <div>About</div>
-                <div><Link href="/feedback">
-                    Submit Feedback
-                </Link>
+                <div>
+                    <Link href="/feedback">Submit Feedback</Link>
                 </div>
             </div>
-        </div >
+        </div>
     </div>
-
 );
 
 export default BasicNavbar;

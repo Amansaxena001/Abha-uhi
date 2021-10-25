@@ -10,15 +10,14 @@ import { createWrapper } from 'next-redux-wrapper';
 
 import { store } from '@app/src/redux/store';
 // import BasicNavbar from '../components/basic-navbar';
-import Router from 'next/router'
-import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
+import Router from 'next/router';
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 
-Router.events.on('routeChangeStart', () => NProgress.start())
-Router.events.on('routeChangeComplete', () => NProgress.done())
-Router.events.on('routeChangeError', () => NProgress.done())
-NProgress.configure({ showSpinner: false })
-
+Router.events.on('routeChangeStart', () => NProgress.start());
+Router.events.on('routeChangeComplete', () => NProgress.done());
+Router.events.on('routeChangeError', () => NProgress.done());
+NProgress.configure({ showSpinner: false });
 
 function MyApp({ Component, pageProps }) {
     const [queryClient] = React.useState<QueryClient>(() => new QueryClient());
@@ -34,7 +33,6 @@ function MyApp({ Component, pageProps }) {
             debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
             throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
 
-
             // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
             offset: 120, // offset (in px) from the original trigger point
             delay: 0, // values from 0 to 3000, with step 50ms
@@ -42,10 +40,9 @@ function MyApp({ Component, pageProps }) {
             easing: 'ease', // default easing for AOS animations
             once: false, // whether animation should happen only once - while scrolling down
             mirror: false, // whether elements should animate out while scrolling past them
-            anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
-
+            anchorPlacement: 'top-bottom' // defines which position of the element regarding to window should trigger the animation
         });
-    }, [])
+    }, []);
 
     useEffect(() => {
         const jssStyles = document.querySelector('#jss-server-side');
@@ -53,7 +50,7 @@ function MyApp({ Component, pageProps }) {
     }, []);
 
     useEffect(() => {
-        document.documentElement.lang = 'en'
+        document.documentElement.lang = 'en';
     }, []);
     return (
         <Provider store={store}>
