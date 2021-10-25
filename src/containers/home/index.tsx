@@ -1,7 +1,7 @@
 import BasicFooter from '@app/src/components/basic-footer';
 import TopNotificationBar from '@app/src/components/basic-navbar/sticky-notify-bar';
 // import CourseCard from '@app/src/components/course-cards';
-import React, { useRef, } from 'react';
+import React, { useRef } from 'react';
 // import Link from 'next/link';
 import Banner from './banner';
 // import Gallery from './gallery-section/Gallery';
@@ -11,10 +11,10 @@ import Offerings from './offerings';
 import OurMission from './our-mission';
 // import styles from './styles.module.scss';
 
-interface IProps { }
+interface IProps {}
 
 const Home: React.FC<IProps> = () => {
-    const ref = useRef(null)
+    const ref = useRef(null);
 
     return (
         <>
