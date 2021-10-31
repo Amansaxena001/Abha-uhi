@@ -38,5 +38,5 @@ husky
 
 
 
-.env*
+# .env*
 .vercel
