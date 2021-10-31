@@ -40,10 +40,7 @@
             text-align: justify;
             letter-spacing: -0.5px;
             line-height: 2em;
-            > strong {
-                color: $color-light-orange;
-                opacity: 1;
-            }
+            
         }
         > ul {
             li {
@@ -70,6 +67,12 @@
             color: $color-aqua;
             transform: rotate(-135deg);
             font-size: 24px;
+        }
+        .link{
+            color: $color-light-orange;
+            &:hover{
+                text-decoration: underline;
+            }
         }
     }
     hr {

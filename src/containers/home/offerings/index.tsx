@@ -11,7 +11,7 @@ const Offerings: React.FC = () => {
                     <h2>A Govt. Certificate</h2>
                     <p>
                         The full length of the course is 6 years. Post completion of every year(with theory and practicle examintion) a{' '}
-                        <strong>Govt. Signed certificate </strong> will be issued by Prayag Sangeet Allahabad
+                        <strong>Govt. Signed certificate </strong> will be issued by Prayag Sangeet Allahabad.
                     </p>
                 </div>
                 <div className={styles.container__Logo}>

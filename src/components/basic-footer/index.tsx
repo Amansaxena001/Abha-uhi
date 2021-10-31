@@ -13,10 +13,15 @@ const BasicFooter: React.FC<IProps> = () => {
                 <div className={styles.outerContainerChild}>
                     <h2>About us</h2>
                     <p>
-                        We are a music school specifically focused on teaching Hindustani Classical Music i'e vocals and synthesizers. The school has been
-                        running since 1990 and as of today, it's a registered <strong>Govt center</strong> under{' '}
-                        <strong>Prayag Sangeet Samiti, Allahabad</strong> . The school follows strict sllaybus decided by Prayag Sangeet Samiti who is also
-                        responsible for conducts examinations all over India every year.
+                        We are a music school specifically focused on teaching Indian Classical Music i'e vocals and synthesizers. The school has been running
+                        since 1990 and as of today, it's a registered <strong>Govt center</strong> under{' '}
+                        <strong>
+                            <a className={styles.link} href="https://www.prayagsangeetsamiti.co.in/" target="_blank" rel="noreferrer">
+                                Prayag Sangeet Samiti, Allahabad
+                            </a>{' '}
+                        </strong>{' '}
+                        . The school follows strict sllaybus decided by Prayag Sangeet Samiti who is also responsible for conducts examinations all over India
+                        every year.
                     </p>
                 </div>
                 <div className={styles.outerContainerChild}>
@@ -24,7 +29,7 @@ const BasicFooter: React.FC<IProps> = () => {
                     <ul>
                         <li>
                             <Link href="/feedback">
-                                <a>submit feedback</a>
+                                <a>feedback</a>
                             </Link>
                         </li>
                         {/* <li>
@@ -55,7 +60,7 @@ const BasicFooter: React.FC<IProps> = () => {
                     <h2>Contact us</h2>
                     <br />
                     <Link href="#">
-                        <a className={styles.contactUs} href="mailto:example@example.com" target="_blank" rel="noreferrer">
+                        <a className={styles.contactUs} href="mailto:shardasangeetmusic@gmail.com" target="_blank" rel="noreferrer">
                             shardasangeetvid@gmail.com
                         </a>
                     </Link>
