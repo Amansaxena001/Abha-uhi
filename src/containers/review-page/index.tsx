@@ -82,6 +82,10 @@ const UserFeedBack: React.FC = () => {
             const data = new FormData();
             data.append('image', file.file);
             try {
+                if (rating < 1) {
+                    message.error('Pls select a rating from by interacting with emojis');
+                    return;
+                }
                 const res = await uploadImage(data);
                 if (res?.success === true && res?.message?.length > 0) {
                     message.success(res?.message);
