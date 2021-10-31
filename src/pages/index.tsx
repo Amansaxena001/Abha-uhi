@@ -34,8 +34,8 @@ export default function index(props) {
                 />
                 <meta
                     property="og:title"
-                    content="Start Learning Indian classical music online from today. Live and interactive sections with the Guru Mrs. Poonam Saxena"
-                    key="title"
+                    content="Start Learning Indian classical music online from today. Live interactive one-on-one sessions with the Guru Mrs. Poonam Saxena"
+                    key="og:title"
                 />
                 <meta
                     property="og:description"
