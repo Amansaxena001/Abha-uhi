@@ -7,6 +7,10 @@
     min-height: 90vh;
     max-height: 100%;
     flex-direction: column;
+    @include breakpoint(mobile) {
+    height: 100%;
+}
+
 }
 .feedbackContainer {
     width: 100%;
@@ -250,6 +254,14 @@
         min-height: 80vh;
     }
     @include breakpoint(mobile) {
-        min-height: auto;
+        height: 100%;
     }
+    
+}
+.backBtn {
+    padding: 0;
+    @include breakpoint(mobile) {
+  padding-left: 20px;
+}
+
 }

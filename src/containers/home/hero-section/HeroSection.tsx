@@ -29,7 +29,7 @@ const HeroSection: React.FC<IProps> = ({ ourMissionRef }) => {
                     <br />
                 </div>
                 <div className={styles.subTitle__2}>
-                    No matter if you are a beginner(5 year old or 20 year) or a professional musician you can have confidence on our teaching methods{' '}
+                    No matter if you are a beginner or a professional musician you can have confidence on our teaching methods{' '}
                 </div>
                 <PrimaryButton className={styles.h__btn} type="primary" onClickHandler={() => ourMissionRef?.current?.scrollIntoView({ behavior: 'smooth' })}>
                     Lets Start
@@ -37,13 +37,17 @@ const HeroSection: React.FC<IProps> = ({ ourMissionRef }) => {
 
                 <div className={styles.stats}>
                     <div className={styles.s__text}>
-                        <h1>+5K</h1>
-                        <span>students taught</span>
+                        <strong>+1K</strong>
+                        <span>
+                            {'  '}
+                            satisfied students and<strong>100+ </strong>
+                            <br /> awards recieved for judgements and guest performances
+                        </span>
                     </div>
-                    <div className={styles.s__text}>
+                    {/* <div className={styles.s__text}>
                         <h1> +1K</h1>
                         <span>satisfied students</span>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

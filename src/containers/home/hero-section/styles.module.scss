@@ -65,15 +65,25 @@
         justify-content: center;
     }
     .s__text {
-        > h1 {
+        strong {
             font-weight: $bold;
             font-size: 44px;
             margin-bottom: 0;
+            @include breakpoint(mobile) {
+                font-size: $font-size-heading;
+            }
         }
-        > span {
+        span {
             font-weight: $semi-bold;
-            opacity: 0.7;
+            // opacity: 0.7;
+            @include breakpoint(mobile) {
+                text-align: center;
+            }
         }
+        @include breakpoint(mobile) {
+  text-align: center;
+}
+
     }
 }
 

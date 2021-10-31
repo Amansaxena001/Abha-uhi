@@ -8,6 +8,7 @@ import LoveFooter from '@app/src/components/made-with-love-footer';
 import { _getError } from '@app/src/utils/api';
 import startCase from 'lodash/startCase';
 import Link from 'next/link';
+import router from 'next/router';
 import styles from './styles.module.scss';
 import { useFeeback } from './hooks';
 import { uploadImage } from './api';
@@ -84,6 +85,7 @@ const UserFeedBack: React.FC = () => {
                 const res = await uploadImage(data);
                 if (res?.success === true && res?.message?.length > 0) {
                     message.success(res?.message);
+                    router.push('/');
                     form.setFieldsValue({ profile_avatar: res?.image_url });
                 }
                 file?.onSuccess(true);
@@ -102,15 +104,14 @@ const UserFeedBack: React.FC = () => {
     }, [isError, resp]);
     return (
         <>
-            <div className="container">
+            <div className={classNames('container', styles.backBtn)}>
                 <Link href="/">
                     <img
-                        src="https://img.icons8.com/small/48/000000/left.png"
+                        src="https://img.icons8.com/small/48/606060/left.png"
                         alt="back-arrow"
                         style={{
                             position: 'relative',
                             top: 20,
-                            margin: 0,
                             cursor: 'pointer',
                             opacity: 0.7
                         }}
