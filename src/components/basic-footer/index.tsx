@@ -61,7 +61,7 @@ const BasicFooter: React.FC<IProps> = () => {
                     <br />
                     <Link href="#">
                         <a className={styles.contactUs} href="mailto:shardasangeetmusic@gmail.com" target="_blank" rel="noreferrer">
-                            shardasangeetvid@gmail.com
+                            shardasangeetmusic@gmail.com
                         </a>
                     </Link>
                     <br />

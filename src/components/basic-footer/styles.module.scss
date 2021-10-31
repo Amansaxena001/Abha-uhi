@@ -40,7 +40,6 @@
             text-align: justify;
             letter-spacing: -0.5px;
             line-height: 2em;
-            
         }
         > ul {
             li {
@@ -68,9 +67,9 @@
             transform: rotate(-135deg);
             font-size: 24px;
         }
-        .link{
+        .link {
             color: $color-light-orange;
-            &:hover{
+            &:hover {
                 text-decoration: underline;
             }
         }

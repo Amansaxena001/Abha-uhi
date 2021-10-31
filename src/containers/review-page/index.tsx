@@ -104,7 +104,7 @@ const UserFeedBack: React.FC = () => {
     }, [isError, resp]);
     return (
         <>
-            <div className="container">
+            <div className={classNames('container', styles.backBtn)}>
                 <Link href="/">
                     <img
                         src="https://img.icons8.com/small/48/606060/left.png"

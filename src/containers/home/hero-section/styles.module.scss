@@ -69,7 +69,7 @@
             font-weight: $bold;
             font-size: 44px;
             margin-bottom: 0;
-            @include breakpoint(mobile){
+            @include breakpoint(mobile) {
                 font-size: $font-size-heading;
             }
         }
@@ -77,10 +77,13 @@
             font-weight: $semi-bold;
             // opacity: 0.7;
             @include breakpoint(mobile) {
-    text-align: center;
+                text-align: center;
+            }
+        }
+        @include breakpoint(mobile) {
+  text-align: center;
 }
 
-        }
     }
 }
 
