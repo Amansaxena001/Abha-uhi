@@ -81,9 +81,8 @@
             }
         }
         @include breakpoint(mobile) {
-  text-align: center;
-}
-
+            text-align: center;
+        }
     }
 }
 
