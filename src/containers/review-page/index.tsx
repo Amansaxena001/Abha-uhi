@@ -139,13 +139,11 @@ const UserFeedBack: React.FC = () => {
                                 initialValues={{ remember: true }}
                                 onFinish={v => {
                                     if (rating < 1) {
-                                        message.error('Pls select a rating from by interacting with emojis');
+                                        message.error('Pls select a rating interacting with emojis');
                                         return;
                                     }
                                     mutate({ ...v });
                                 }}
-                                // onFinish={e => console.log(e)}
-                                // onFinishFailed={onFinishFailed}
                                 form={form}
                                 autoComplete="off"
                             >
