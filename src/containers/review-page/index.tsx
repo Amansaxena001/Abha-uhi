@@ -85,7 +85,6 @@ const UserFeedBack: React.FC = () => {
                 const res = await uploadImage(data);
                 if (res?.success === true && res?.message?.length > 0) {
                     message.success(res?.message);
-                    router.push('/');
                     form.setFieldsValue({ profile_avatar: res?.image_url });
                 }
                 file?.onSuccess(true);
@@ -143,6 +142,7 @@ const UserFeedBack: React.FC = () => {
                                         return;
                                     }
                                     mutate({ ...v });
+                                    router.push('/');
                                 }}
                                 form={form}
                                 autoComplete="off"
