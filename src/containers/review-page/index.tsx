@@ -138,7 +138,7 @@ const UserFeedBack: React.FC = () => {
                                 initialValues={{ remember: true }}
                                 onFinish={v => {
                                     if (rating < 1) {
-                                        message.error('Pls select a rating interacting with emojis');
+                                        message.error('Pls select a rating by interacting with emojis');
                                         return;
                                     }
                                     mutate({ ...v });
