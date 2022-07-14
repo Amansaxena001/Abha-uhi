@@ -1,5 +1,3 @@
-import Home from '@app/src/containers/home/index';
-
 import React from 'react';
 import Head from 'next/head';
 
@@ -46,7 +44,7 @@ export default function index(props) {
                 <meta property="og:url" content="https://shardasangeet.live" /> */}
                 <meta property="og:type" content="website" />
             </Head>
-            <Home />
+            <h1>Hi</h1>
         </>
     );
 }
