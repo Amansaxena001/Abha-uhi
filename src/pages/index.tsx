@@ -3,11 +3,6 @@ import Home from '@app/src/containers/home/index';
 import React from 'react';
 import Head from 'next/head';
 
-// const CoachFeedbackFormDynamic = dynamic(() => import(), {
-//   // loading: () => <FullPageLoader />,
-//   ssr: false
-// });
-
 export default function index(props) {
     return (
         <>
@@ -16,7 +11,7 @@ export default function index(props) {
                 <meta name="viewport" content="width=device-width, initial-scale=1" key="port" />
                 <meta charSet="utf-8" />
                 <meta property="og:locale" content="en_US" />
-                <meta
+                {/* <meta
                     name="shardasangeetlive:title"
                     content="Learn Indian Classical music online from today. Visit our website and if you
                      have any doubts drop us a mail on shardasangeetmusic@email.com"
@@ -48,7 +43,7 @@ export default function index(props) {
                  "
                     key="og:desc"
                 />
-                <meta property="og:url" content="https://shardasangeet.live" />
+                <meta property="og:url" content="https://shardasangeet.live" /> */}
                 <meta property="og:type" content="website" />
             </Head>
             <Home />
