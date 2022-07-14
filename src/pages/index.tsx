@@ -5,7 +5,7 @@ export default function index(props) {
     return (
         <>
             <Head>
-                <title>Sharda Sangeet Vidhyalaya</title>
+                <title>ABHA hackathon</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1" key="port" />
                 <meta charSet="utf-8" />
                 <meta property="og:locale" content="en_US" />
