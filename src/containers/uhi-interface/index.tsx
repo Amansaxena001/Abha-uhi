@@ -13,6 +13,9 @@ export const PatientSymptomInterface = () => {
             <ProgressBar />
             <SearchSymptoms />
             <AddSymptoms />
+            <div className={styles.submit}>
+                <span>Complete</span>
+            </div>
         </div>
     );
 };

@@ -1,5 +1,7 @@
 import { AutoComplete, Input, SelectProps } from 'antd';
+import classNames from 'classnames';
 import React, { useState } from 'react';
+import styles from './styles.module.scss';
 
 const SearchSymptoms = () => {
     // const [options, setOptions] = useState<SelectProps<object>['options']>([]);
@@ -23,7 +25,7 @@ const SearchSymptoms = () => {
         }
     ];
     return (
-        <div className="container">
+        <div className={classNames('container', styles.inner)}>
             <AutoComplete
                 dropdownMatchSelectWidth={252}
                 style={{ width: '100%', margin: '20px 0' }}
