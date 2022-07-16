@@ -3,7 +3,7 @@ import React, { useCallback, useState } from 'react';
 import Image from 'next/image';
 import { Button, Form, Modal, Upload } from 'antd';
 import { CloseOutlined, UploadOutlined } from '@ant-design/icons';
-import { useDispatch } from 'react-redux';
+import { useDispatch, batch } from 'react-redux';
 import { RcFile, UploadFile } from 'antd/lib/upload/interface';
 import { specialityToSymptomMapping, symptomMapping } from './helper';
 import styles from './styles.module.scss';
@@ -16,17 +16,19 @@ const AddSymptoms = () => {
     const [savedSymp, setSavedSymp] = useState([]);
     const [previewVisible, setPreviewVisible] = useState(false);
     const [previewImage, setPreviewImage] = useState('');
+    const [selectedCat, setSelectedCat] = useState([symp]);
 
     const dispatch = useDispatch();
     const speciality = 'GP';
-
     const handleSelection = data => {
         form.setFieldsValue({ symptom: data });
-        setSymp(data);
-        dispatch(resetProgress(0));
-        form.setFieldsValue({ options: [] });
+        batch(() => {
+            setSymp(data);
+            if (!selectedCat.includes(data)) {
+                setSelectedCat(prev => [...prev, data]);
+            }
+        });
     };
-
     const saveSymptoms = () => {
         setSavedSymp(form.getFieldValue('options'));
     };
@@ -59,7 +61,7 @@ const AddSymptoms = () => {
         <div className={classNames('container', styles.innerContainer)}>
             <h1>Add your symptoms</h1>
             <span>Add as many symptoms as you can for better Clinic Experience</span>
-            <Form onFinish={e => console.log(e)} style={{ width: '100%' }} form={form} name="patient-data">
+            <Form onFinish={e => console.log(e)} style={{ width: '100%' }} form={form} name="patient-data" initialValues={{ symptom: symp }}>
                 <div className={styles.suggestions}>
                     {specialityToSymptomMapping[speciality].map(curr => (
                         <div>
@@ -69,7 +71,7 @@ const AddSymptoms = () => {
                                         block
                                         onClick={() => handleSelection(curr.speciality)}
                                         shape="circle"
-                                        className={classNames(styles.btn, curr.speciality === symp ? styles.selectedEmoji : styles.deselected)}
+                                        className={classNames(styles.btn, selectedCat.includes(curr.speciality) ? styles.selectedEmoji : styles.deselected)}
                                     >
                                         <div className={styles.btnContent}>
                                             <Image src={curr.icon as any} height={70} width={70} />
@@ -82,9 +84,9 @@ const AddSymptoms = () => {
                                     <Button
                                         onClick={() => handleSelection(curr.speciality)}
                                         shape="circle"
-                                        className={classNames(styles.btn, curr.speciality === symp ? styles.selectedEmoji : styles.deselected)}
+                                        className={classNames(styles.btn, selectedCat.includes(curr.speciality) ? styles.selectedEmoji : styles.deselected)}
                                     >
-                                        <curr.icon style={{ color: '#4ED8E9', fontSize: '70px', marginBottom: 5 }} />
+                                        <curr.icon style={{ color: '#4ED8E9', fontSize: '70px' }} />
                                         <h4>{curr.speciality}</h4>
                                     </Button>
                                 </div>
@@ -95,8 +97,20 @@ const AddSymptoms = () => {
                 <div className={styles.symptoms}>
                     {!!symp.length && !savedSymp.length && (
                         <div className={styles.header}>
-                            <h3>Select your symptoms for {form.getFieldValue('symptom')}</h3>
-                            {!!form.getFieldValue('options')?.length && <Button onClick={saveSymptoms}>save</Button>}
+                            <h3>Select your symptoms for {symp}</h3>
+                            {form.getFieldValue('options')?.length ? (
+                                <Button onClick={saveSymptoms}>save</Button>
+                            ) : (
+                                <Button
+                                    style={{ color: 'red' }}
+                                    onClick={() => {
+                                        setSymp('');
+                                        setSelectedCat([]);
+                                    }}
+                                >
+                                    cancel
+                                </Button>
+                            )}
                         </div>
                     )}
                     {!!savedSymp.length && (
@@ -151,7 +165,7 @@ const AddSymptoms = () => {
                     </Form.Item>
                 </div>
 
-                <Form.Item hidden name="symptom" />
+                <Form.Item hidden name="symptom" initialValue={symp} />
             </Form>
         </div>
     );

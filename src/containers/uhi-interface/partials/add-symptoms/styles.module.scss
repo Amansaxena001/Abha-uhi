@@ -2,9 +2,8 @@
 
 .optionsEx {
     width: max-content;
-    // display: inline-block;
     margin: 5px 10px 5px 0px;
-    border: 1px solid $color-black;
+    border: 1px solid #979797;
     border-radius: 20px;
     padding: 3px 20px;
     color: #52b6c3;
@@ -49,6 +48,7 @@
                 width: 70px;
                 padding: 0;
                 margin-bottom: 30px;
+                
 
                 &Content {
                     display: flex;
@@ -63,7 +63,7 @@
         .header{
             display: flex;
             justify-content: space-between;
-            button{
+            >button{
                 color:#50BFA8;
                 font-weight: 700;
                 background: transparent;
@@ -112,7 +112,7 @@
         opacity: 1;
         transform: scale(1.1);
         transition: 0.3s ease all;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
     }
     .deselected {
         opacity: 0.5;
