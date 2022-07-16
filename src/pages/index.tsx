@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import PatientSymptomInterface from '../containers/uhi-interface';
 
 export default function index(props) {
     return (
@@ -44,7 +45,7 @@ export default function index(props) {
                 <meta property="og:url" content="https://shardasangeet.live" /> */}
                 <meta property="og:type" content="website" />
             </Head>
-            <h1>Hi</h1>
+            <PatientSymptomInterface />
         </>
     );
 }

@@ -5,7 +5,6 @@ public
 .next
 package-lock.json
 package.json
-styles
 .eslintrc.js 
 .prettierrc.json
 .vscode/settings.json

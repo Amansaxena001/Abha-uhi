@@ -1,0 +1,150 @@
+@import 'styles/utils/index';
+
+.optionsEx {
+    width: max-content;
+    display: inline-block;
+    margin: 5px 10px 5px 0px;
+    border: 1px solid $color-black;
+    border-radius: 20px;
+    padding: 3px 20px;
+    color: #52b6c3;
+}
+.innerContainer {
+    padding: 10px 20px;
+    margin-top: 20px;
+    > h1 {
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0 !important;
+        color: $color-black;
+    }
+    > span {
+        font-size: 12px;
+        display: inline-block;
+        position: relative;
+        top: 5px;
+        color: $color-black;
+    }
+    .suggestions {
+        margin: 20px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        .items {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            h4 {
+                color: $color-black;
+                position: relative;
+                top: 5px;
+                font-size: 12px;
+            }
+            .btn {
+                border: none;
+                height: 70px;
+                width: 70px;
+                padding: 0;
+                margin-bottom: 30px;
+
+                &Content {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+            }
+        }
+    }
+    .symptoms {
+        margin-top: 20px;
+        .selectedOption {
+            @extend .optionsEx;
+            background-color: #f5feff;
+            border-color: #52B6C3;
+            font-weight: 600;
+
+        }
+        .option {
+            @extend .optionsEx;
+            background-color: #fff;
+            transition: 0.1s all ease;
+
+        }
+    }
+    .emoji {
+        opacity: 0.5;
+        transition: 0.3s ease all;
+        &:hover {
+            transition: 0.3s ease all;
+            opacity: 1;
+        }
+    }
+    .selectedEmoji {
+        opacity: 1;
+        transform: scale(1.1);
+        transition: 0.3s ease all;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    .deselected {
+        opacity: 0.5;
+    }
+    .upload {
+        .text{
+            font-size: 9px;
+            font-weight: 500;
+            text-align: center;
+            color: #979797;
+        }
+    
+        :global .ant-upload-list{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        :global .ant-upload.ant-upload-select-picture-card{
+            border: 1px dashed #4ED8E9;
+            border-radius: 10px;
+          
+        }
+        :global .ant-upload.ant-upload-select-picture-card > .ant-upload{
+            flex-direction: column;
+            gap: 10px;
+        }
+        @include breakpoint(mobile) {
+            // width: 200px;
+            // height: 200px;
+            margin: 20px auto;
+            transition: 0.3s ease all;
+        }
+
+        .center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            text-align: center;
+
+            > h4 {
+                @include breakpoint(mobile) {
+                    font-size: 12px;
+                }
+                font-size: 14px;
+                font-weight: 500;
+                margin: 0 !important;
+                color: $color-black;
+            }
+            button {
+                border-radius: 20px;
+                background: #4ed8e9;
+                color: $color-white;
+                font-weight: 600;
+                border: none;
+            }
+        }
+    }
+    :global .ant-form-item {
+        margin-bottom: 0;
+    }
+}
