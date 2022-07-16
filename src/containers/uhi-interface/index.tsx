@@ -1,3 +1,4 @@
+import { Alert } from 'antd';
 import classNames from 'classnames';
 import React from 'react';
 import AddSymptoms from './partials/add-symptoms';
@@ -8,15 +9,17 @@ import styles from './styles.module.scss';
 
 export const PatientSymptomInterface = () => {
     return (
-        <div className={classNames(styles.innerContainer)}>
-            <AppointmentBar />
-            <ProgressBar />
-            <SearchSymptoms />
-            <AddSymptoms />
+        <>
+            <div className={classNames(styles.innerContainer)}>
+                <AppointmentBar />
+                <ProgressBar />
+                <SearchSymptoms />
+                <AddSymptoms />
+            </div>
             <div className={styles.submit}>
                 <span>Complete</span>
             </div>
-        </div>
+        </>
     );
 };
 
