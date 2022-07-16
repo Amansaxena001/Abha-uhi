@@ -2,16 +2,16 @@
 
 .optionsEx {
     width: max-content;
-    display: inline-block;
+    // display: inline-block;
     margin: 5px 10px 5px 0px;
     border: 1px solid $color-black;
     border-radius: 20px;
     padding: 3px 20px;
     color: #52b6c3;
 }
+
 .innerContainer {
     padding: 10px 20px;
-    margin-top: 20px;
     > h1 {
         font-size: 14px;
         font-weight: 600;
@@ -26,7 +26,7 @@
         color: $color-black;
     }
     .suggestions {
-        margin: 20px 0;
+        margin: 20px 0 0 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -60,19 +60,45 @@
     }
     .symptoms {
         margin-top: 20px;
+        .header{
+            display: flex;
+            justify-content: space-between;
+            button{
+                color:#50BFA8;
+                font-weight: 700;
+                background: transparent;
+                border: none;
+                position: relative;
+                top: -2px
+            }
+        }
         .selectedOption {
             @extend .optionsEx;
             background-color: #f5feff;
             border-color: #52B6C3;
             font-weight: 600;
+            transition: all .2s
 
         }
         .option {
             @extend .optionsEx;
             background-color: #fff;
-            transition: 0.1s all ease;
+            transition: all .2s
 
         }
+    }
+    .savedSymptoms{
+       >button{
+        margin-right: 10px;
+        margin-bottom: 10px;
+        border-radius: 20px;
+        background-color: #27C1CD;
+        color: #fff;
+        font-weight: 600;
+       }
+       >button:hover{
+        border-color:  #27C1CD
+       }
     }
     .emoji {
         opacity: 0.5;

@@ -1,19 +1,17 @@
 import { Progress } from 'antd';
 import classNames from 'classnames';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styles from './styles.module.scss';
 
-interface IProps {
-    percentDone?: number;
-}
-
-const ProgressBar: React.FC<IProps> = ({ percentDone = 40 }) => {
+const ProgressBar: React.FC = () => {
+    const progress = useSelector((state: any) => state.uhi.progress);
     return (
         <div className={styles.container}>
             <div className={classNames('container', styles.innerContainer)}>
-                <span>0/6 Symptoms</span>
+                <span>{progress / 20}/6 Symptoms</span>
                 <div style={{ width: '40%' }}>
-                    <Progress percent={percentDone} showInfo={false} type="line" strokeColor=" #52B6C3" />
+                    <Progress percent={progress} showInfo={false} type="line" strokeColor=" #52B6C3" />
                 </div>
             </div>
         </div>

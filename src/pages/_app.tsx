@@ -49,9 +49,6 @@ function MyApp({ Component, pageProps }) {
         if (jssStyles && jssStyles.parentNode) jssStyles.parentNode.removeChild(jssStyles);
     }, []);
 
-    useEffect(() => {
-        document.documentElement.lang = 'en';
-    }, []);
     return (
         <Provider store={store}>
             <QueryClientProvider client={queryClient}>

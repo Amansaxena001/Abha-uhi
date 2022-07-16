@@ -1,24 +1,8 @@
 import { combineReducers } from 'redux';
+import { uhiReducer } from '../../containers/uhi-interface/reducer';
 import { errorReducer } from './errorReducer';
 
 export default combineReducers({
-    error: errorReducer
+    error: errorReducer,
+    uhi: uhiReducer
 });
-
-/*
-f1(cb){
-    cb()
-}
-
-// console.log()
-// f2()
-
-// f3()
-
-f1(f3)--executing
-
-r1- callback()
-
-r2- child of r1 {callback}
-
-*/
