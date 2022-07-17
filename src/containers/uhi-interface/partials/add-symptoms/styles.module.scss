@@ -1,0 +1,223 @@
+@import 'styles/utils/index';
+
+.optionsEx {
+    width: max-content;
+    margin: 5px 10px 5px 0px;
+    border: 1px solid #979797;
+    border-radius: 20px;
+    padding: 3px 20px;
+    color: #52b6c3;
+}
+
+.innerContainer {
+    padding: 10px 20px;
+    > h1 {
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0 !important;
+        color: $color-black;
+    }
+    > span {
+        font-size: 12px;
+        display: inline-block;
+        position: relative;
+        top: 5px;
+        color: $color-black;
+    }
+    .suggestions {
+        margin: 20px 0 0 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        position: relative;
+        .items {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+
+            .tick{
+                position: absolute;
+                top: 50px;
+                right: 2px;
+                color: #27C1CD;
+                border: 1px solid #fff;
+                z-index: 1000;
+                border-radius: 50%;
+                background-color: #fff;
+            }
+            h4 {
+                color: $color-black;
+                position: relative;
+                top: 5px;
+                font-size: 12px;
+            }
+            .btn {
+                border: none;
+                height: 70px;
+                width: 70px;
+                padding: 0;
+                margin-bottom: 30px;
+                
+
+                &Content {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+            }
+        }
+    }
+    .symptoms {
+        .header{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            >button{
+                color:#50BFA8;
+                font-weight: 700;
+                background: transparent;
+                border: none;
+                position: relative;
+                top: -2px
+            }
+        }
+        .selectedOption {
+            @extend .optionsEx;
+            background-color: #f5feff;
+            border-color: #52B6C3;
+            font-weight: 600;
+            transition: all .2s
+
+        }
+        .option {
+            @extend .optionsEx;
+            background-color: #fff;
+            transition: all .2s
+
+        }
+    }
+    .savedSymptoms{
+       >button{
+        margin-right: 10px;
+        margin-bottom: 10px;
+        border-radius: 20px;
+        background-color: #27C1CD;
+        color: #fff;
+        font-weight: 600;
+       }
+       >button:hover{
+        border-color:  #27C1CD
+       }
+    }
+    .emoji {
+        opacity: 0.5;
+        transition: 0.3s ease all;
+        &:hover {
+            transition: 0.3s ease all;
+            opacity: 1;
+        }
+    }
+    .selectedEmoji {
+        opacity: 1;
+        transform: scale(1.1);
+        transition: 0.3s ease all;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+    }
+    .deselected {
+        opacity: 0.6;
+    }
+    .upload {
+        margin-top: 20px;
+        .text{
+            font-size: 9px;
+            font-weight: 500;
+            text-align: center;
+            color: #979797;
+            top: -4px;
+            position: relative;
+        }
+    
+        :global .ant-upload-list{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        :global .ant-upload.ant-upload-select-picture-card{
+            border: 1px dashed #4ED8E9;
+            border-radius: 10px;
+          
+        }
+        :global .ant-upload.ant-upload-select-picture-card > .ant-upload{
+            flex-direction: column;
+            gap: 10px;
+        }
+        @include breakpoint(mobile) {
+            // width: 200px;
+            // height: 200px;
+            margin: 20px auto;
+            transition: 0.3s ease all;
+        }
+
+        .center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            text-align: center;
+
+            > h4 {
+                @include breakpoint(mobile) {
+                    font-size: 12px;
+                }
+                font-size: 14px;
+                font-weight: 500;
+                margin: 0 !important;
+                color: $color-black;
+            }
+            button {
+                border-radius: 20px;
+                background: #4ed8e9;
+                color: $color-white;
+                font-weight: 600;
+                border: none;
+            }
+        }
+    }
+    :global .ant-form-item {
+        margin-bottom: 0;
+    }
+}
+
+
+.submit2{
+padding: 0px 20px 10px 20px;
+text-align: center;
+box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+background: #4ED8E9;
+// width: 60%;
+margin: auto;
+position: absolute;
+bottom: 0px;
+right: 0;
+left: 0;
+padding: 20px 0;
+
+// position: sticky;
+button{
+    font-weight: 600;
+    color: #fff;
+    font-size: 22px;
+    &:active{
+        color: #fff;
+    }
+    &:hover{
+        color: #fff;
+    }
+    &:focus{
+        color: #fff;
+    }
+}
+
+}

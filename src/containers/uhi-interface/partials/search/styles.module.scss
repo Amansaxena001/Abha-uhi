@@ -1,0 +1,23 @@
+.inner{
+    :global .ant-btn-primary{
+        background: #fff !important;
+        color: #4b4b4b;
+        font-size: 22px;
+        border: 1px solid #d9d9d9;
+    }
+    :global .ant-btn-primary:hover{
+        // border: none !important;
+    }
+    :global .ant-input:focus{
+        border: 1px solid #d9d9d9;
+
+    }
+    :global .ant-input:hover{
+        border: 1px solid #d9d9d9;
+
+    }
+      :global .ant-input:active{
+        border: 1px solid #d9d9d9;
+
+    }
+}
