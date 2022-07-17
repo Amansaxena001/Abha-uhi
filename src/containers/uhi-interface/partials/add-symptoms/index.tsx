@@ -75,13 +75,6 @@ const AddSymptoms = () => {
         return [...savedSymp, ...options];
     }, [symp, options]);
 
-    useEffect(() => {
-        if (finalSymp?.length < 1 && form.getFieldValue('category')?.length) {
-            setSymp(form.getFieldValue('category')?.[0] || 'Head');
-        }
-    }, [finalSymp, symp]);
-    console.log(form.getFieldValue('category'));
-
     const onFinish = async e => {
         try {
             setLoading(true);
@@ -214,7 +207,7 @@ const AddSymptoms = () => {
                         <div className={styles.upload}>
                             <h3>Upload Documents & Prescriptions</h3>
                             <br />
-                            <Upload beforeUpload={e => console.log(e)} accept="application/pdf, image/*" onPreview={handlePreview} listType="picture-card">
+                            <Upload beforeUpload={e => console.log(e)} onPreview={handlePreview} listType="picture-card">
                                 <UploadOutlined style={{ color: '#4ED8E9', fontSize: 20 }} />
                                 <span className={styles.text}>Upload</span>
                             </Upload>

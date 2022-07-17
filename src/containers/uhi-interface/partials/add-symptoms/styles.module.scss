@@ -153,6 +153,11 @@
             flex-direction: column;
             gap: 10px;
         }
+
+
+:global         .ant-upload-list-item-error{
+    border-color: #979797;
+}
         @include breakpoint(mobile) {
             // width: 200px;
             // height: 200px;
