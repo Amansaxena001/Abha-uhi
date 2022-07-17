@@ -31,11 +31,23 @@
         align-items: center;
         flex-wrap: wrap;
         gap: 20px;
+        position: relative;
         .items {
             display: flex;
             align-items: center;
             flex-direction: column;
+            position: relative;
 
+            .tick{
+                position: absolute;
+                top: 50px;
+                right: 2px;
+                color: #27C1CD;
+                border: 1px solid #fff;
+                z-index: 1000;
+                border-radius: 50%;
+                background-color: #fff;
+            }
             h4 {
                 color: $color-black;
                 position: relative;
@@ -59,7 +71,6 @@
         }
     }
     .symptoms {
-        margin-top: 20px;
         .header{
             display: flex;
             justify-content: space-between;
@@ -115,7 +126,7 @@
         box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
     }
     .deselected {
-        opacity: 0.5;
+        opacity: 0.6;
     }
     .upload {
         margin-top: 20px;
@@ -124,6 +135,8 @@
             font-weight: 500;
             text-align: center;
             color: #979797;
+            top: -4px;
+            position: relative;
         }
     
         :global .ant-upload-list{
@@ -174,4 +187,31 @@
     :global .ant-form-item {
         margin-bottom: 0;
     }
+}
+
+
+.submit2{
+padding: 10px;
+text-align: center;
+box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+background: #4ED8E9;
+border-radius: 50px;
+width: 60%;
+margin: auto;
+// position: sticky;
+button{
+    font-weight: 600;
+    color: #fff;
+    font-size: 22px;
+    &:active{
+        color: #fff;
+    }
+    &:hover{
+        color: #fff;
+    }
+    &:focus{
+        color: #fff;
+    }
+}
+
 }

@@ -1,13 +1,14 @@
 import classNames from 'classnames';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
-import { Button, Form, Modal, Upload } from 'antd';
-import { CloseOutlined, UploadOutlined } from '@ant-design/icons';
-import { useDispatch, batch } from 'react-redux';
+import { Button, Form, message, Modal, Upload } from 'antd';
+import { CheckCircleFilled, CloseOutlined, UploadOutlined } from '@ant-design/icons';
+import { useDispatch, batch, useSelector } from 'react-redux';
 import { RcFile, UploadFile } from 'antd/lib/upload/interface';
 import { specialityToSymptomMapping, symptomMapping } from './helper';
 import styles from './styles.module.scss';
-import { resetProgress, updateProgress } from '../../actions';
+import { finalData, remOptions, resetProgress, updateProgress } from '../../actions';
+import { savePatientDetails } from '../../api';
 
 const AddSymptoms = () => {
     const [form] = Form.useForm();
@@ -17,6 +18,10 @@ const AddSymptoms = () => {
     const [previewVisible, setPreviewVisible] = useState(false);
     const [previewImage, setPreviewImage] = useState('');
     const [selectedCat, setSelectedCat] = useState([symp]);
+    const canInteract = useSelector(state => state!.uhi?.apptDetails?.emr?.symptoms?.length > 0);
+    const options = useSelector(state => state!.uhi?.options || []);
+    const progess = useSelector(state => state?.uhi?.progress);
+    const apptDetails = useSelector(state => state?.uhi?.apptDetails);
 
     const dispatch = useDispatch();
     const speciality = 'GP';
@@ -31,10 +36,12 @@ const AddSymptoms = () => {
     };
     const saveSymptoms = () => {
         setSavedSymp(form.getFieldValue('options'));
+        setSymp('');
     };
 
     const removeSavedSymp = useCallback(curr => {
         setSavedSymp(prev => prev.filter(_curr => _curr !== curr));
+        dispatch(remOptions(curr));
     }, []);
 
     const getBase64 = (file: RcFile): Promise<string> =>
@@ -57,21 +64,41 @@ const AddSymptoms = () => {
     const closePreview = () => {
         setPreviewVisible(false);
     };
+
+    const anySympSelectedFromCategory = useCallback(() => {
+        return form.getFieldValue('category')?.includes(symp) && !form.getFieldValue('options')?.includes(...symptomMapping[symp]);
+    }, [symp, options]);
+
+    const finalSymp = useMemo(() => {
+        return [...savedSymp, ...options];
+    }, [symp, options]);
+
+    const onFinish = async e => {
+        try {
+            const res = await savePatientDetails({ emr: apptDetails?.emr?.emrId, symptoms: [...finalSymp] });
+        } catch (error) {
+            message.error('Error submitting details');
+        }
+    };
     return (
         <div className={classNames('container', styles.innerContainer)}>
             <h1>Add your symptoms</h1>
             <span>Add as many symptoms as you can for better Clinic Experience</span>
-            <Form onFinish={e => console.log(e)} style={{ width: '100%' }} form={form} name="patient-data" initialValues={{ symptom: symp }}>
+            <Form onFinish={onFinish} style={{ width: '100%' }} form={form} name="patient-data" initialValues={{ symptom: symp }}>
                 <div className={styles.suggestions}>
                     {specialityToSymptomMapping[speciality].map(curr => (
                         <div>
                             {!curr.custom ? (
                                 <div className={styles.items}>
+                                    {!!form.getFieldValue('category')?.includes(curr.speciality) && curr.speciality !== symp && (
+                                        <CheckCircleFilled className={styles.tick} />
+                                    )}
                                     <Button
+                                        disabled={canInteract}
                                         block
                                         onClick={() => handleSelection(curr.speciality)}
                                         shape="circle"
-                                        className={classNames(styles.btn, selectedCat.includes(curr.speciality) ? styles.selectedEmoji : styles.deselected)}
+                                        className={classNames(styles.btn, curr.speciality === symp ? styles.selectedEmoji : styles.deselected)}
                                     >
                                         <div className={styles.btnContent}>
                                             <Image src={curr.icon as any} height={70} width={70} />
@@ -81,10 +108,15 @@ const AddSymptoms = () => {
                                 </div>
                             ) : (
                                 <div className={styles.items}>
+                                    {!!form.getFieldValue('category')?.includes(curr.speciality) && curr.speciality !== symp && (
+                                        <CheckCircleFilled className={styles.tick} />
+                                    )}
+
                                     <Button
+                                        disabled={canInteract}
                                         onClick={() => handleSelection(curr.speciality)}
                                         shape="circle"
-                                        className={classNames(styles.btn, selectedCat.includes(curr.speciality) ? styles.selectedEmoji : styles.deselected)}
+                                        className={classNames(styles.btn, curr.speciality === symp ? styles.selectedEmoji : styles.deselected)}
                                     >
                                         <curr.icon style={{ color: '#4ED8E9', fontSize: '70px' }} />
                                         <h4>{curr.speciality}</h4>
@@ -95,7 +127,7 @@ const AddSymptoms = () => {
                     ))}
                 </div>
                 <div className={styles.symptoms}>
-                    {!!symp.length && !savedSymp.length && (
+                    {!!symp.length && (
                         <div className={styles.header}>
                             <h3>Select your symptoms for {symp}</h3>
                             {form.getFieldValue('options')?.length ? (
@@ -106,6 +138,7 @@ const AddSymptoms = () => {
                                     onClick={() => {
                                         setSymp('');
                                         setSelectedCat([]);
+                                        dispatch(resetProgress(0));
                                     }}
                                 >
                                     cancel
@@ -113,59 +146,77 @@ const AddSymptoms = () => {
                             )}
                         </div>
                     )}
-                    {!!savedSymp.length && (
-                        <div className={styles.savedSymptoms}>
-                            <h3>Selected Symptoms</h3>
-                            {savedSymp.map(curr => (
-                                <Button onClick={() => removeSavedSymp(curr)}>
-                                    {curr}
-                                    <CloseOutlined />
-                                </Button>
-                            ))}
-                        </div>
-                    )}
-                    {!savedSymp.length && (
-                        <Form.Item name="options" initialValue={[]} rules={[{ type: 'array' }]}>
-                            {symptomMapping[symp]?.map(curr => (
-                                <Button
-                                    onClick={() => {
-                                        if (form.getFieldValue('options')?.includes(curr)) {
-                                            form.setFieldsValue({ options: form.getFieldValue('options')?.filter(_curr => _curr !== curr) });
-                                            dispatch(updateProgress(-20));
-                                        } else {
-                                            form.setFieldsValue({ options: [...(form.getFieldValue('options') || []), curr] });
-                                            dispatch(updateProgress(20));
-                                        }
+                    {!canInteract && (
+                        <div>
+                            <Form.Item name="options" initialValue={[]} rules={[{ type: 'array' }]}>
+                                {symptomMapping[symp]?.map(curr => (
+                                    <Button
+                                        onClick={() => {
+                                            if (form.getFieldValue('options')?.includes(curr)) {
+                                                form.setFieldsValue({ options: form.getFieldValue('options')?.filter(_curr => _curr !== curr) });
+                                                dispatch(updateProgress(-20));
+                                                if (anySympSelectedFromCategory()) {
+                                                    form.setFieldsValue({ category: form.getFieldValue('category')?.filter(_curr => _curr !== symp) });
+                                                }
+                                            } else {
+                                                if (progess / 20 >= 6) {
+                                                    message.error('Only 6 symptoms can be selected at a time');
+                                                    return;
+                                                }
+                                                form.setFieldsValue({ options: [...(form.getFieldValue('options') || []), curr] });
+                                                if (!form.getFieldValue('category')?.includes(symp)) {
+                                                    form.setFieldsValue({ category: [...(form.getFieldValue('category') || []), symp] });
+                                                }
+                                                dispatch(updateProgress(20));
+                                            }
 
-                                        setd(!d);
-                                    }}
-                                    className={form.getFieldValue('options')?.includes(curr) ? styles.selectedOption : styles.option}
-                                >
-                                    <span>{curr}</span>
-                                </Button>
-                            ))}
-                        </Form.Item>
+                                            setd(!d);
+                                        }}
+                                        className={form.getFieldValue('options')?.includes(curr) ? styles.selectedOption : styles.option}
+                                    >
+                                        <span>{curr}</span>
+                                    </Button>
+                                ))}
+                            </Form.Item>
+                            {!!finalSymp.length && (
+                                <div className={styles.savedSymptoms}>
+                                    <h3>Selected Symptoms</h3>
+                                    {finalSymp.map(curr => (
+                                        <Button onClick={() => removeSavedSymp(curr)}>
+                                            {curr}
+                                            <CloseOutlined />
+                                        </Button>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
                     )}
                 </div>
                 {/* <Button htmlType="submit">s</Button> */}
                 <div>
                     <Form.Item name="upload" valuePropName="fileList">
                         <div className={styles.upload}>
+                            <h3>Upload Documents & Prescriptions</h3>
+                            <br />
                             <Upload beforeUpload={e => console.log(e)} accept="application/pdf, image/*" onPreview={handlePreview} listType="picture-card">
                                 <UploadOutlined style={{ color: '#4ED8E9', fontSize: 20 }} />
-                                <span className={styles.text}>
-                                    Upload documents <br /> & prescription
-                                </span>
+                                <span className={styles.text}>Upload</span>
                             </Upload>
                             <Modal visible={previewVisible} footer={null} onCancel={closePreview}>
                                 <img alt="example" style={{ width: '100%' }} src={previewImage} />
                             </Modal>
-                            ;
                         </div>
                     </Form.Item>
                 </div>
-
                 <Form.Item hidden name="symptom" initialValue={symp} />
+                <Form.Item hidden name="category" />
+                <div className={styles.submit2}>
+                    <div>
+                        <Button htmlType="submit" type="text">
+                            Submit
+                        </Button>
+                    </div>
+                </div>
             </Form>
         </div>
     );
