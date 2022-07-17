@@ -262,7 +262,7 @@ const AddSymptoms = () => {
                 </div>
                 <Form.Item hidden name="symptom" initialValue={symp} />
                 <Form.Item hidden name="category" />
-                {!done && (
+                {!done && !!apptDetails?.emr?.emrId?.length && (
                     <div className={styles.submit2}>
                         <Button disabled={!finalSymp?.length} htmlType="submit" type="text">
                             Submit {loading && <Spin indicator={<LoadingOutlined style={{ fontSize: 30, marginLeft: 20, color: 'blue' }} />} />}
