@@ -7,15 +7,15 @@ import styles from './styles.module.scss';
 
 const AppointmentBar = () => {
     const apptDetails = useSelector<any>(state => state!.uhi?.apptDetails);
-    const apptTime = moment(apptDetails?.scheduleDatetime as string).format('hh:mm a');
+    const apptTime = moment(apptDetails?.scheduleDatetime as string)
+        .add(30, 'minutes')
+        .format('hh:mm a');
 
     return (
         <div className={classNames('container', styles.container)}>
             <Image src="/appt.svg" height={50} width={50} />
             <div className={styles.content}>
-                <h1>
-                    Appointment Scheduled at {apptTime} at {apptDetails?.apptS}
-                </h1>
+                <h1>Appointment Scheduled at {apptTime} at Fortis Hospital</h1>
                 <span>Que Number: 14</span>
             </div>
         </div>
