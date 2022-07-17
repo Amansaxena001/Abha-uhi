@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
-import { Button, Form, message, Modal, Upload } from 'antd';
-import { CheckCircleFilled, CloseOutlined, UploadOutlined } from '@ant-design/icons';
+import { Button, Form, message, Modal, Spin, Upload } from 'antd';
+import { CheckCircleFilled, CloseOutlined, LoadingOutlined, UploadOutlined } from '@ant-design/icons';
 import { useDispatch, batch, useSelector } from 'react-redux';
 import { RcFile, UploadFile } from 'antd/lib/upload/interface';
 import { specialityToSymptomMapping, symptomMapping } from './helper';
@@ -18,10 +18,12 @@ const AddSymptoms = () => {
     const [previewVisible, setPreviewVisible] = useState(false);
     const [previewImage, setPreviewImage] = useState('');
     const [selectedCat, setSelectedCat] = useState([symp]);
-    const canInteract = useSelector(state => state!.uhi?.apptDetails?.emr?.symptoms?.length > 0);
-    const options = useSelector(state => state!.uhi?.options || []);
-    const progess = useSelector(state => state?.uhi?.progress);
-    const apptDetails = useSelector(state => state?.uhi?.apptDetails);
+    const canInteract = useSelector<any>(state => state?.uhi?.apptDetails?.emr?.symptoms?.length > 0);
+    const options = useSelector<any>(state => state?.uhi?.options || []);
+    const progess = useSelector<any>(state => state?.uhi?.progress);
+    const apptDetails = useSelector<any>(state => state?.uhi?.apptDetails);
+    const [loading, setLoading] = useState(false);
+    const [done, setDone] = useState(false);
 
     const dispatch = useDispatch();
     const speciality = 'GP';
@@ -73,11 +75,25 @@ const AddSymptoms = () => {
         return [...savedSymp, ...options];
     }, [symp, options]);
 
+    useEffect(() => {
+        if (finalSymp?.length < 1 && form.getFieldValue('category')?.length) {
+            setSymp(form.getFieldValue('category')?.[0] || 'Head');
+        }
+    }, [finalSymp, symp]);
+    console.log(form.getFieldValue('category'));
+
     const onFinish = async e => {
         try {
+            setLoading(true);
             const res = await savePatientDetails({ emr: apptDetails?.emr?.emrId, symptoms: [...finalSymp] });
+            if (res) {
+                message.success('Successfully submitted details !');
+            }
         } catch (error) {
             message.error('Error submitting details');
+        } finally {
+            setDone(true);
+            setLoading(false);
         }
     };
     return (
@@ -94,7 +110,7 @@ const AddSymptoms = () => {
                                         <CheckCircleFilled className={styles.tick} />
                                     )}
                                     <Button
-                                        disabled={canInteract}
+                                        disabled={canInteract as boolean}
                                         block
                                         onClick={() => handleSelection(curr.speciality)}
                                         shape="circle"
@@ -113,7 +129,7 @@ const AddSymptoms = () => {
                                     )}
 
                                     <Button
-                                        disabled={canInteract}
+                                        disabled={canInteract as boolean}
                                         onClick={() => handleSelection(curr.speciality)}
                                         shape="circle"
                                         className={classNames(styles.btn, curr.speciality === symp ? styles.selectedEmoji : styles.deselected)}
@@ -210,13 +226,13 @@ const AddSymptoms = () => {
                 </div>
                 <Form.Item hidden name="symptom" initialValue={symp} />
                 <Form.Item hidden name="category" />
-                <div className={styles.submit2}>
-                    <div>
+                {!done && (
+                    <div className={styles.submit2}>
                         <Button htmlType="submit" type="text">
-                            Submit
+                            Submit {loading && <Spin indicator={<LoadingOutlined style={{ fontSize: 30, marginLeft: 20, color: 'blue' }} />} />}
                         </Button>
                     </div>
-                </div>
+                )}
             </Form>
         </div>
     );

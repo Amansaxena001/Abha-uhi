@@ -12,6 +12,13 @@ module.exports = {
             '@app/*': path.resolve(__dirname, './*')
         }
     },
+      typescript: {
+    // !! WARN !!
+    // Dangerously allow production builds to successfully complete even if
+    // your project has type errors.
+    // !! WARN !!
+    ignoreBuildErrors: true,
+  },
       i18n: {
     /**
      * Provide the locales you want to support in your application

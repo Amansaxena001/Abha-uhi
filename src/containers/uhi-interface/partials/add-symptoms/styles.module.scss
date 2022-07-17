@@ -74,6 +74,7 @@
         .header{
             display: flex;
             justify-content: space-between;
+            margin-top: 20px;
             >button{
                 color:#50BFA8;
                 font-weight: 700;
@@ -191,13 +192,18 @@
 
 
 .submit2{
-padding: 10px;
+padding: 0px 20px 10px 20px;
 text-align: center;
 box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 background: #4ED8E9;
-border-radius: 50px;
-width: 60%;
+// width: 60%;
 margin: auto;
+position: absolute;
+bottom: 0px;
+right: 0;
+left: 0;
+padding: 20px 0;
+
 // position: sticky;
 button{
     font-weight: 600;
