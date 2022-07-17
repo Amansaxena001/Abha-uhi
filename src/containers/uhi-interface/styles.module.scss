@@ -4,3 +4,11 @@
     min-height: 100vh;
     max-height: max-content;
 }
+
+.center{
+      display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+height: 90vh;
+}

@@ -4,7 +4,7 @@ const initialState = {
     progress: 0,
     apptDetails: {},
     options: [],
-    data: []
+    data: {}
 };
 
 export const uhiReducer = (state = initialState, action) => {
@@ -38,7 +38,7 @@ export const uhiReducer = (state = initialState, action) => {
         case FINAL_DATA:
             return {
                 ...state,
-                data: [...payload]
+                data: { ...payload }
             };
         default:
             return state;
