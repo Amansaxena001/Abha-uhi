@@ -7,3 +7,5 @@ Pls check history by clicking on collbaborators and it will show full git histor
 
 This is for checking out UI/UX, prefer using this in mobile view for better experience \
 .Only for valid Appt-id submit cta will show which will come once appt is booked from any source(practo, tata health etc)
+
+@src- inside /containers/uhi-interface full patient side EUA module 
