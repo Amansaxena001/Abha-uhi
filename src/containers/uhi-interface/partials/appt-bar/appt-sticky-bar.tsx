@@ -13,9 +13,10 @@ const AppointmentBar = () => {
         <div className={classNames('container', styles.container)}>
             <Image src="/appt.svg" height={50} width={50} />
             <div className={styles.content}>
-                <h1>
-                    Appointment Scheduled at {apptTime} at {apptDetails?.apptS}
-                </h1>
+                <h1>Appointment Scheduled at {apptTime} at Fortis Hospital</h1>
+                <h6>
+                    Appointment Source - <strong>{apptDetails?.appointmentSource}</strong>
+                </h6>
                 <span>Que Number: 14</span>
             </div>
         </div>

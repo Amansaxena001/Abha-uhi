@@ -8,7 +8,7 @@ import { RcFile, UploadFile } from 'antd/lib/upload/interface';
 import { specialityToSymptomMapping, symptomMapping } from './helper';
 import styles from './styles.module.scss';
 import { finalData, remOptions, resetProgress, updateProgress } from '../../actions';
-import { savePatientDetails } from '../../api';
+import { savePatientDetails, uploadFileData } from '../../api';
 
 const AddSymptoms = () => {
     const [form] = Form.useForm();
@@ -21,10 +21,11 @@ const AddSymptoms = () => {
     const canInteract = useSelector<any>(state => state?.uhi?.apptDetails?.emr?.symptoms?.length > 0);
     const options = useSelector<any>(state => state?.uhi?.options || []);
     const progess = useSelector<any>(state => state?.uhi?.progress);
-    const apptDetails = useSelector<any>(state => state?.uhi?.apptDetails);
+    const apptDetails = useSelector<Record<string, any>>(state => state?.uhi?.apptDetails);
     const [loading, setLoading] = useState(false);
     const [done, setDone] = useState(false);
 
+    console.log(apptDetails, 'sax');
     const dispatch = useDispatch();
     const speciality = 'GP';
     const handleSelection = data => {
@@ -43,8 +44,19 @@ const AddSymptoms = () => {
 
     const removeSavedSymp = useCallback(curr => {
         setSavedSymp(prev => prev.filter(_curr => _curr !== curr));
+        form.setFieldsValue({ options: form.getFieldValue('options')?.filter(_curr => _curr !== curr) });
         dispatch(remOptions(curr));
+        if ((progess as number) / 20 >= 0) {
+            dispatch(updateProgress(-20));
+        }
     }, []);
+
+    useEffect(() => {
+        if (form.getFieldValue('options')?.length < 1) {
+            form.setFieldsValue({ category: [] });
+            setd(!d);
+        }
+    }, [progess]);
 
     const getBase64 = (file: RcFile): Promise<string> =>
         new Promise((resolve, reject) => {
@@ -72,28 +84,47 @@ const AddSymptoms = () => {
     }, [symp, options]);
 
     const finalSymp = useMemo(() => {
-        return [...savedSymp, ...options];
+        return [...savedSymp, ...(options as [])];
     }, [symp, options]);
-
-    useEffect(() => {
-        if (finalSymp?.length < 1 && form.getFieldValue('category')?.length) {
-            setSymp(form.getFieldValue('category')?.[0] || 'Head');
-        }
-    }, [finalSymp, symp]);
-    console.log(form.getFieldValue('category'));
 
     const onFinish = async e => {
         try {
             setLoading(true);
-            const res = await savePatientDetails({ emr: apptDetails?.emr?.emrId, symptoms: [...finalSymp] });
-            if (res) {
+            const res = await savePatientDetails({ emrId: apptDetails?.emr?.emrId, symptoms: [...finalSymp] });
+            if (res.data) {
                 message.success('Successfully submitted details !');
+                dispatch(finalData(res.data));
             }
         } catch (error) {
             message.error('Error submitting details');
         } finally {
             setDone(true);
             setLoading(false);
+        }
+    };
+
+    const uploadFiles = async file => {
+        try {
+            const converFileToBase64 = await getBase64(file?.file);
+            if (converFileToBase64.length) {
+                const data = { patientId: apptDetails?.patientId as string, base64: converFileToBase64 };
+                const res = await uploadFileData(data);
+                if (res.data?.response) {
+                    file.onSuccess(true);
+                    dispatch(updateProgress(20));
+                    message.success('Attachment uploaded successfully');
+                }
+            }
+        } catch (error) {
+            message.error('Error in uploding attachments');
+            file.onError(true);
+        }
+    };
+
+    const beforeUpload = () => {
+        if (((progess / 20) as number) >= 6) {
+            message.error('At max 6 symptoms can be selected including attachments');
+            return Upload.LIST_IGNORE;
         }
     };
     return (
@@ -175,7 +206,7 @@ const AddSymptoms = () => {
                                                     form.setFieldsValue({ category: form.getFieldValue('category')?.filter(_curr => _curr !== symp) });
                                                 }
                                             } else {
-                                                if (progess / 20 >= 6) {
+                                                if ((progess as number) / 20 >= 6) {
                                                     message.error('Only 6 symptoms can be selected at a time');
                                                     return;
                                                 }
@@ -208,13 +239,18 @@ const AddSymptoms = () => {
                         </div>
                     )}
                 </div>
-                {/* <Button htmlType="submit">s</Button> */}
                 <div>
                     <Form.Item name="upload" valuePropName="fileList">
                         <div className={styles.upload}>
                             <h3>Upload Documents & Prescriptions</h3>
                             <br />
-                            <Upload beforeUpload={e => console.log(e)} accept="application/pdf, image/*" onPreview={handlePreview} listType="picture-card">
+                            <Upload
+                                beforeUpload={beforeUpload}
+                                accept="application/pdf"
+                                onPreview={handlePreview}
+                                listType="picture-card"
+                                customRequest={uploadFiles}
+                            >
                                 <UploadOutlined style={{ color: '#4ED8E9', fontSize: 20 }} />
                                 <span className={styles.text}>Upload</span>
                             </Upload>
@@ -226,9 +262,9 @@ const AddSymptoms = () => {
                 </div>
                 <Form.Item hidden name="symptom" initialValue={symp} />
                 <Form.Item hidden name="category" />
-                {!done && (
+                {!done && !!apptDetails?.emr?.emrId?.length && (
                     <div className={styles.submit2}>
-                        <Button htmlType="submit" type="text">
+                        <Button disabled={!finalSymp?.length} htmlType="submit" type="text">
                             Submit {loading && <Spin indicator={<LoadingOutlined style={{ fontSize: 30, marginLeft: 20, color: 'blue' }} />} />}
                         </Button>
                     </div>

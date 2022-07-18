@@ -131,6 +131,7 @@
     }
     .upload {
         margin-top: 20px;
+        padding-bottom: 12%;
         .text{
             font-size: 9px;
             font-weight: 500;
@@ -153,6 +154,11 @@
             flex-direction: column;
             gap: 10px;
         }
+
+
+:global         .ant-upload-list-item-error{
+    border-color: #979797;
+}
         @include breakpoint(mobile) {
             // width: 200px;
             // height: 200px;

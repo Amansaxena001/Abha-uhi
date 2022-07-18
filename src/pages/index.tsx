@@ -49,3 +49,14 @@ export default function index(props) {
         </>
     );
 }
+
+export const getServerSideProps = ({ query }) => {
+    if (!query.appointmentId) {
+        return {
+            notFound: true
+        };
+    }
+    return {
+        props: {}
+    };
+};
